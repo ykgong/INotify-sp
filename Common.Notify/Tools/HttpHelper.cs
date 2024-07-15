@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using RestSharp;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -28,7 +29,7 @@ namespace Common.Notify.Tools
             client = new RestClient();
             request = new RestRequest(url, Method.Get);
             //request.AddHeader("Content-Type", "application/json");
-            request.Timeout = timeout;
+            request.Timeout = TimeSpan.FromSeconds(timeout);
 
             GenerateHeader(request, Headers);
 
@@ -64,7 +65,7 @@ namespace Common.Notify.Tools
             client = new RestClient();
             request = new RestRequest(url, Method.Post);
             //request.AddHeader("Content-Type", "application/json");
-            request.Timeout = timeout;
+            request.Timeout = TimeSpan.FromSeconds(timeout);
 
             GenerateHeader(request, Headers);
 
