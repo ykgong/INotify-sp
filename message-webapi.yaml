@@ -1,0 +1,9 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: message-webapi
+spec:
+  type: bindings.http
+  metadata:
+  - name: url
+    value: "http://localhost:5000"  # 替换为您的 API 入口地址

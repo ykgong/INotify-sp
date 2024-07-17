@@ -1,0 +1,26 @@
+# apiVersion: dapr.io/v1alpha1
+# kind: Component
+# metadata:
+#   name: pubsub-email
+# spec:
+#   type: pubsub.rabbitmq
+#   version: v1
+#   metadata:
+#   - name: connectionString
+#     value: amqp://admin:admin@localhost:5672
+#   - name: deletedWhenUnused
+#     value: "false"
+#   - name: deliveryMode
+#     value: "0"
+
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: queue-email
+spec:
+  type: bindings.redis
+  metadata:
+  - name: redisHost
+    value: localhost:6379
+  - name: redisPassword
+    value: "q.123"

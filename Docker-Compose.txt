@@ -1,0 +1,37 @@
+version: '3.8'
+services:
+  message:
+    image: your-message-image:tag  # 替换为您的 API 入口服务镜像名称及标签
+    environment:
+      - DAPR_HTTP_PORT=3500  # Dapr HTTP API 端口
+      - DAPR_GRPC_PORT=50001  # Dapr gRPC API 端口
+    ports:
+      - "3500:3500"  # 映射 Dapr HTTP API 端口
+      - "50001:50001"  # 映射 Dapr gRPC API 端口
+    volumes:
+      - ./components:/components  # 将 Dapr 组件目录挂载到容器内部
+
+  emailser:
+    image: your-emailser-image:tag  # 替换为您的邮件处理服务镜像名称及标签
+    environment:
+      - DAPR_GRPC_PORT=50001  # Dapr gRPC API 端口
+    volumes:
+      - ./components:/components  # 将 Dapr 组件目录挂载到容器内部
+
+  watchser:
+    image: your-watchser-image:tag  # 替换为您的监视服务镜像名称及标签
+    environment:
+      - DAPR_GRPC_PORT=50001  # Dapr gRPC API 端口
+    volumes:
+      - ./components:/components  # 将 Dapr 组件目录挂载到容器内部
+
+  msgser:
+    image: your-msgser-image:tag  # 替换为您的消息服务镜像名称及标签
+    environment:
+      - DAPR_GRPC_PORT=50001  # Dapr gRPC API 端口
+    volumes:
+      - ./components:/components  # 将 Dapr 组件目录挂载到容器内部
+
+volumes:
+  dapr-components:
+    driver: local

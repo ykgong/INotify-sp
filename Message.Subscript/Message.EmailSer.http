@@ -1,0 +1,6 @@
+@Message.EmailSer_HostAddress = http://localhost:5268
+
+GET {{Message.EmailSer_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
