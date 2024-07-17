@@ -41,7 +41,7 @@ namespace Message.Subscript.Server.Controllers
                 MailHost = "smtp.exmail.qq.com",
                 MailPort = 465,
                 MailFrom = "gongyinkui@cqyzx.com",
-                MailPwd = "170506,.revV",
+                MailPwd = "",
                 SecurityType = MailKit.Security.SecureSocketOptions.Auto
 
             }, message.data.Subject, message.data.Content, message.data.SendTo);             
