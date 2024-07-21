@@ -1,0 +1,1081 @@
+
+Date:2024-07-19 10:08:50.529 LogLevel:Information
+Message:Now listening on: "http://[::]:5000"
+
+Date:2024-07-19 10:08:50.636 LogLevel:Information
+Message:Application started. Press Ctrl+C to shut down.
+
+Date:2024-07-19 10:08:50.637 LogLevel:Information
+Message:Hosting environment: "Development"
+
+Date:2024-07-19 10:08:50.637 LogLevel:Information
+Message:Content root path: "D:\Temp\msg-push\INotify-sp\Message.WebApi"
+
+Date:2024-07-19 10:08:50.640 LogLevel:Information
+Message:Request starting "HTTP/1.1" "GET" "http"://"127.0.0.1:5000""""/dapr/config""" - "application/json" null
+
+Date:2024-07-19 10:08:50.765 LogLevel:Information
+Message:[07/19/2024 02:08:50收到请求] GET /dapr/config
+Request Body: 空
+
+Date:2024-07-19 10:08:50.773 LogLevel:Information
+Message:Request finished "HTTP/1.1" "GET" "http"://"127.0.0.1:5000""""/dapr/config""" - 404 0 null 134.0159ms
+
+Date:2024-07-19 10:08:50.779 LogLevel:Information
+Message:Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "http"://"127.0.0.1:5000""""/dapr/config", Response status code: 404
+
+Date:2024-07-19 10:08:50.903 LogLevel:Information
+Message:Request starting "HTTP/1.1" "GET" "http"://"127.0.0.1:5000""""/dapr/subscribe""" - "application/json" null
+
+Date:2024-07-19 10:08:50.910 LogLevel:Information
+Message:[07/19/2024 02:08:50收到请求] GET /dapr/subscribe
+Request Body: 空
+
+Date:2024-07-19 10:08:50.913 LogLevel:Information
+Message:Request finished "HTTP/1.1" "GET" "http"://"127.0.0.1:5000""""/dapr/subscribe""" - 404 0 null 8.4408ms
+
+Date:2024-07-19 10:08:50.913 LogLevel:Information
+Message:Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "http"://"127.0.0.1:5000""""/dapr/subscribe", Response status code: 404
+
+Date:2024-07-19 10:32:28.517 LogLevel:Information
+Message:Request starting "HTTP/1.1" "GET" "http"://"localhost:5000""""/swagger/index.html""" - null null
+
+Date:2024-07-19 10:32:28.583 LogLevel:Information
+Message:Request finished "HTTP/1.1" "GET" "http"://"localhost:5000""""/swagger/index.html""" - 200 null "text/html;charset=utf-8" 66.7222ms
+
+Date:2024-07-19 10:32:29.100 LogLevel:Information
+Message:Request starting "HTTP/1.1" "GET" "http"://"localhost:5000""""/swagger/v1/swagger.json""" - null null
+
+Date:2024-07-19 10:32:29.324 LogLevel:Information
+Message:Request finished "HTTP/1.1" "GET" "http"://"localhost:5000""""/swagger/v1/swagger.json""" - 200 null "application/json;charset=utf-8" 223.964ms
+
+Date:2024-07-19 10:41:11.974 LogLevel:Information
+Message:Request starting "HTTP/1.1" "POST" "http"://"localhost:5000""""/api/Info/send""" - "application/json-patch+json" 194
+
+Date:2024-07-19 10:41:11.992 LogLevel:Information
+Message:[07/19/2024 02:41:11收到请求] POST /api/Info/send
+Request Body: {
+  "msgType": 2,
+  "subject": "消息测试邮件",
+  "sendTo": [
+    "g.yk@qq.com"
+  ],
+  "content": "这是一封基于分布式集群的消息队列邮件发送测试，收到不用回复"
+}
+
+Date:2024-07-19 10:41:11.997 LogLevel:Information
+Message:Executing endpoint '"Message.WebApi.Controllers.InfoController.Post (Message.WebApi)"'
+
+Date:2024-07-19 10:41:12.088 LogLevel:Information
+Message:Route matched with "{action = \"Post\", controller = \"Info\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Common.Notify.DTO.SendTextInDto)" on controller "Message.WebApi.Controllers.InfoController" ("Message.WebApi").
+
+Date:2024-07-19 10:41:12.458 LogLevel:Information
+Message:收到消息queue-email,topic-email：{"MsgType":2,"Subject":"消息测试邮件","SendTo":["g.yk@qq.com"],"Content":"这是一封基于分布式集群的消息队列邮件发送测试，收到不用回复"}
+
+Date:2024-07-19 10:41:12.815 LogLevel:Information
+Message:Executing "OkObjectResult", writing value of type '"Common.Notify.DTO.ResultOutDto"'.
+
+Date:2024-07-19 10:41:12.862 LogLevel:Information
+Message:Executed action "Message.WebApi.Controllers.InfoController.Post (Message.WebApi)" in 759.8799ms
+
+Date:2024-07-19 10:41:12.863 LogLevel:Information
+Message:Executed endpoint '"Message.WebApi.Controllers.InfoController.Post (Message.WebApi)"'
+
+Date:2024-07-19 10:41:12.874 LogLevel:Information
+Message:Request finished "HTTP/1.1" "POST" "http"://"localhost:5000""""/api/Info/send""" - 200 45 "application/json; charset=utf-8" 900.4304ms
+
+Date:2024-07-19 10:49:06.649 LogLevel:Information
+Message:Request starting "HTTP/1.1" "POST" "http"://"localhost:5000""""/api/Info/send""" - "application/json-patch+json" 194
+
+Date:2024-07-19 10:49:06.651 LogLevel:Information
+Message:[07/19/2024 02:49:06收到请求] POST /api/Info/send
+Request Body: {
+  "msgType": 2,
+  "subject": "消息测试邮件",
+  "sendTo": [
+    "g.yk@qq.com"
+  ],
+  "content": "这是一封基于分布式集群的消息队列邮件发送测试，收到不用回复"
+}
+
+Date:2024-07-19 10:49:06.651 LogLevel:Information
+Message:Executing endpoint '"Message.WebApi.Controllers.InfoController.Post (Message.WebApi)"'
+
+Date:2024-07-19 10:49:06.652 LogLevel:Information
+Message:Route matched with "{action = \"Post\", controller = \"Info\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Common.Notify.DTO.SendTextInDto)" on controller "Message.WebApi.Controllers.InfoController" ("Message.WebApi").
+
+Date:2024-07-19 10:49:06.661 LogLevel:Information
+Message:收到消息queue-email,topic-email：{"MsgType":2,"Subject":"消息测试邮件","SendTo":["g.yk@qq.com"],"Content":"这是一封基于分布式集群的消息队列邮件发送测试，收到不用回复"}
+
+Date:2024-07-19 10:49:06.735 LogLevel:Information
+Message:Executing "OkObjectResult", writing value of type '"Common.Notify.DTO.ResultOutDto"'.
+
+Date:2024-07-19 10:49:06.736 LogLevel:Information
+Message:Executed action "Message.WebApi.Controllers.InfoController.Post (Message.WebApi)" in 82.8415ms
+
+Date:2024-07-19 10:49:06.737 LogLevel:Information
+Message:Executed endpoint '"Message.WebApi.Controllers.InfoController.Post (Message.WebApi)"'
+
+Date:2024-07-19 10:49:06.737 LogLevel:Information
+Message:Request finished "HTTP/1.1" "POST" "http"://"localhost:5000""""/api/Info/send""" - 200 45 "application/json; charset=utf-8" 88.0117ms
+
+Date:2024-07-19 11:18:19.065 LogLevel:Information
+Message:Request starting "HTTP/1.1" "POST" "http"://"localhost:5000""""/api/Info/send""" - "application/json-patch+json" 295
+
+Date:2024-07-19 11:18:19.066 LogLevel:Information
+Message:[07/19/2024 03:18:19收到请求] POST /api/Info/send
+Request Body: {
+  "msgType": 0,
+  "subject": "消息测试企业微信",
+  "sendTo": [
+    "gongyinkui","LeiYang"
+  ],
+  "content": "你的快递已到，请携带工卡前往邮件中心领取。\n出发前可查看<a href=\"http://work.weixin.qq.com\">邮件中心视频实况</a>，聪明避开排队。"
+}
+
+Date:2024-07-19 11:18:19.067 LogLevel:Information
+Message:Executing endpoint '"Message.WebApi.Controllers.InfoController.Post (Message.WebApi)"'
+
+Date:2024-07-19 11:18:19.067 LogLevel:Information
+Message:Route matched with "{action = \"Post\", controller = \"Info\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Common.Notify.DTO.SendTextInDto)" on controller "Message.WebApi.Controllers.InfoController" ("Message.WebApi").
+
+Date:2024-07-19 11:18:19.072 LogLevel:Information
+Message:收到消息queue-webchat,topic-webchat：{"MsgType":0,"Subject":"消息测试企业微信","SendTo":["gongyinkui","LeiYang"],"Content":"你的快递已到，请携带工卡前往邮件中心领取。\n出发前可查看<a href=\"http://work.weixin.qq.com\">邮件中心视频实况</a>，聪明避开排队。"}
+
+Date:2024-07-19 11:18:19.085 LogLevel:Information
+Message:Executed action "Message.WebApi.Controllers.InfoController.Post (Message.WebApi)" in 17.9745ms
+
+Date:2024-07-19 11:18:19.086 LogLevel:Information
+Message:Executed endpoint '"Message.WebApi.Controllers.InfoController.Post (Message.WebApi)"'
+
+Date:2024-07-19 11:18:19.086 LogLevel:Error
+Message:请求处理错误"07-19 11:18:19.086"，状态：200,路径："/api/Info/send"
+,错误："Publish operation failed: the Dapr endpoint indicated a failure. See InnerException for details."
+Dapr.DaprException: Publish operation failed: the Dapr endpoint indicated a failure. See InnerException for details.
+ ---> Grpc.Core.RpcException: Status(StatusCode="InvalidArgument", Detail="pubsub queue-webchat is not found")
+   at Dapr.Client.DaprClientGrpc.MakePublishRequest(String pubsubName, String topicName, ByteString content, Dictionary`2 metadata, String dataContentType, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Dapr.Client.DaprClientGrpc.MakePublishRequest(String pubsubName, String topicName, ByteString content, Dictionary`2 metadata, String dataContentType, CancellationToken cancellationToken)
+   at Message.WebApi.Controllers.InfoController.StoreMessageInQueueAsync(String queueName, String topic, SendTextInDto message) in D:\Temp\msg-push\INotify-sp\Message.WebApi\Controllers\InfoController.cs:line 59
+   at Message.WebApi.Controllers.InfoController.Post(SendTextInDto message) in D:\Temp\msg-push\INotify-sp\Message.WebApi\Controllers\InfoController.cs:line 34
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Message.WebApi.Extensions.ErrorHandlingMiddleware.Invoke(HttpContext context, ILogger`1 logger) in D:\Temp\msg-push\INotify-sp\Message.WebApi\Extensions\ErrorHandlingMiddleware.cs:line 68
+
+Date:2024-07-19 11:18:19.211 LogLevel:Information
+Message:Request finished "HTTP/1.1" "POST" "http"://"localhost:5000""""/api/Info/send""" - 200 null null 146.701ms
+
+Date:2024-07-19 11:24:00.543 LogLevel:Information
+Message:Request starting "HTTP/1.1" "POST" "http"://"localhost:5000""""/api/Info/send""" - "application/json-patch+json" 295
+
+Date:2024-07-19 11:24:00.543 LogLevel:Information
+Message:[07/19/2024 03:24:00收到请求] POST /api/Info/send
+Request Body: {
+  "msgType": 0,
+  "subject": "消息测试企业微信",
+  "sendTo": [
+    "gongyinkui","LeiYang"
+  ],
+  "content": "你的快递已到，请携带工卡前往邮件中心领取。\n出发前可查看<a href=\"http://work.weixin.qq.com\">邮件中心视频实况</a>，聪明避开排队。"
+}
+
+Date:2024-07-19 11:24:00.543 LogLevel:Information
+Message:Executing endpoint '"Message.WebApi.Controllers.InfoController.Post (Message.WebApi)"'
+
+Date:2024-07-19 11:24:00.544 LogLevel:Information
+Message:Route matched with "{action = \"Post\", controller = \"Info\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Common.Notify.DTO.SendTextInDto)" on controller "Message.WebApi.Controllers.InfoController" ("Message.WebApi").
+
+Date:2024-07-19 11:24:00.545 LogLevel:Information
+Message:收到消息queue-webchat,topic-webchat：{"MsgType":0,"Subject":"消息测试企业微信","SendTo":["gongyinkui","LeiYang"],"Content":"你的快递已到，请携带工卡前往邮件中心领取。\n出发前可查看<a href=\"http://work.weixin.qq.com\">邮件中心视频实况</a>，聪明避开排队。"}
+
+Date:2024-07-19 11:24:00.556 LogLevel:Information
+Message:Executed action "Message.WebApi.Controllers.InfoController.Post (Message.WebApi)" in 12.1998ms
+
+Date:2024-07-19 11:24:00.556 LogLevel:Information
+Message:Executed endpoint '"Message.WebApi.Controllers.InfoController.Post (Message.WebApi)"'
+
+Date:2024-07-19 11:24:00.557 LogLevel:Error
+Message:请求处理错误"07-19 11:24:00.557"，状态：200,路径："/api/Info/send"
+,错误："Publish operation failed: the Dapr endpoint indicated a failure. See InnerException for details."
+Dapr.DaprException: Publish operation failed: the Dapr endpoint indicated a failure. See InnerException for details.
+ ---> Grpc.Core.RpcException: Status(StatusCode="InvalidArgument", Detail="pubsub queue-webchat is not found")
+   at Dapr.Client.DaprClientGrpc.MakePublishRequest(String pubsubName, String topicName, ByteString content, Dictionary`2 metadata, String dataContentType, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Dapr.Client.DaprClientGrpc.MakePublishRequest(String pubsubName, String topicName, ByteString content, Dictionary`2 metadata, String dataContentType, CancellationToken cancellationToken)
+   at Message.WebApi.Controllers.InfoController.StoreMessageInQueueAsync(String queueName, String topic, SendTextInDto message) in D:\Temp\msg-push\INotify-sp\Message.WebApi\Controllers\InfoController.cs:line 59
+   at Message.WebApi.Controllers.InfoController.Post(SendTextInDto message) in D:\Temp\msg-push\INotify-sp\Message.WebApi\Controllers\InfoController.cs:line 34
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Message.WebApi.Extensions.ErrorHandlingMiddleware.Invoke(HttpContext context, ILogger`1 logger) in D:\Temp\msg-push\INotify-sp\Message.WebApi\Extensions\ErrorHandlingMiddleware.cs:line 68
+
+Date:2024-07-19 11:24:00.559 LogLevel:Information
+Message:Request finished "HTTP/1.1" "POST" "http"://"localhost:5000""""/api/Info/send""" - 200 null null 16.5122ms
+
+Date:2024-07-19 11:24:30.934 LogLevel:Information
+Message:Application is shutting down...
+
+Date:2024-07-19 11:24:50.476 LogLevel:Information
+Message:Now listening on: "http://[::]:5000"
+
+Date:2024-07-19 11:24:50.640 LogLevel:Information
+Message:Application started. Press Ctrl+C to shut down.
+
+Date:2024-07-19 11:24:50.641 LogLevel:Information
+Message:Hosting environment: "Development"
+
+Date:2024-07-19 11:24:50.642 LogLevel:Information
+Message:Content root path: "D:\Temp\msg-push\INotify-sp\Message.WebApi"
+
+Date:2024-07-19 11:24:50.727 LogLevel:Information
+Message:Request starting "HTTP/1.1" "GET" "http"://"127.0.0.1:5000""""/dapr/config""" - "application/json" null
+
+Date:2024-07-19 11:24:50.876 LogLevel:Information
+Message:[07/19/2024 03:24:50收到请求] GET /dapr/config
+Request Body: 空
+
+Date:2024-07-19 11:24:50.889 LogLevel:Information
+Message:Request finished "HTTP/1.1" "GET" "http"://"127.0.0.1:5000""""/dapr/config""" - 404 0 null 166.1439ms
+
+Date:2024-07-19 11:24:50.898 LogLevel:Information
+Message:Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "http"://"127.0.0.1:5000""""/dapr/config", Response status code: 404
+
+Date:2024-07-19 11:24:51.306 LogLevel:Information
+Message:Request starting "HTTP/1.1" "GET" "http"://"127.0.0.1:5000""""/dapr/subscribe""" - "application/json" null
+
+Date:2024-07-19 11:24:51.310 LogLevel:Information
+Message:[07/19/2024 03:24:51收到请求] GET /dapr/subscribe
+Request Body: 空
+
+Date:2024-07-19 11:24:51.312 LogLevel:Information
+Message:Request finished "HTTP/1.1" "GET" "http"://"127.0.0.1:5000""""/dapr/subscribe""" - 404 0 null 4.7332ms
+
+Date:2024-07-19 11:24:51.314 LogLevel:Information
+Message:Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "http"://"127.0.0.1:5000""""/dapr/subscribe", Response status code: 404
+
+Date:2024-07-19 11:26:00.763 LogLevel:Information
+Message:Request starting "HTTP/1.1" "POST" "http"://"localhost:5000""""/api/Info/send""" - "application/json-patch+json" 295
+
+Date:2024-07-19 11:26:00.776 LogLevel:Information
+Message:[07/19/2024 03:26:00收到请求] POST /api/Info/send
+Request Body: {
+  "msgType": 0,
+  "subject": "消息测试企业微信",
+  "sendTo": [
+    "gongyinkui","LeiYang"
+  ],
+  "content": "你的快递已到，请携带工卡前往邮件中心领取。\n出发前可查看<a href=\"http://work.weixin.qq.com\">邮件中心视频实况</a>，聪明避开排队。"
+}
+
+Date:2024-07-19 11:26:00.779 LogLevel:Information
+Message:Executing endpoint '"Message.WebApi.Controllers.InfoController.Post (Message.WebApi)"'
+
+Date:2024-07-19 11:26:00.811 LogLevel:Information
+Message:Route matched with "{action = \"Post\", controller = \"Info\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Common.Notify.DTO.SendTextInDto)" on controller "Message.WebApi.Controllers.InfoController" ("Message.WebApi").
+
+Date:2024-07-19 11:26:00.986 LogLevel:Information
+Message:收到消息queue-webchat,topic-webchat：{"MsgType":0,"Subject":"消息测试企业微信","SendTo":["gongyinkui","LeiYang"],"Content":"你的快递已到，请携带工卡前往邮件中心领取。\n出发前可查看<a href=\"http://work.weixin.qq.com\">邮件中心视频实况</a>，聪明避开排队。"}
+
+Date:2024-07-19 11:26:01.208 LogLevel:Information
+Message:Executing "OkObjectResult", writing value of type '"Common.Notify.DTO.ResultOutDto"'.
+
+Date:2024-07-19 11:26:01.230 LogLevel:Information
+Message:Executed action "Message.WebApi.Controllers.InfoController.Post (Message.WebApi)" in 410.1683ms
+
+Date:2024-07-19 11:26:01.231 LogLevel:Information
+Message:Executed endpoint '"Message.WebApi.Controllers.InfoController.Post (Message.WebApi)"'
+
+Date:2024-07-19 11:26:01.234 LogLevel:Information
+Message:Request finished "HTTP/1.1" "POST" "http"://"localhost:5000""""/api/Info/send""" - 200 45 "application/json; charset=utf-8" 471.5673ms
+
+Date:2024-07-19 11:48:37.205 LogLevel:Information
+Message:Request starting "HTTP/1.1" "POST" "http"://"localhost:5000""""/api/Info/send""" - "application/json-patch+json" 720
+
+Date:2024-07-19 11:48:37.207 LogLevel:Information
+Message:[07/19/2024 03:48:37收到请求] POST /api/Info/send
+Request Body: {
+  "msgType": 4,
+  "subject": "模板消息测试微信",
+  "sendTo": [
+    "oSBYsuJY1DenowNCjr_YAnz9HkTE","oSBYsuK1RRe_iRAzWfib85V3byPw","oSBYsuBaOcgurf9ruM0lu1xYa92I"
+  ],
+  "content": "{\"template_id\":\"Tbbxvd5A58tM67lVfRhJ3-z7DpZcWZJk7aQckMxks6Q\",\"url\":\"https://mp.weixin.qq.com/s/a-WQKTKJrVt-L92fVeoC4Q\",\"miniprogram\":{\"appid\":\"wx816e37b1b1e3c183\",\"pagepath\":\"/pages/index/tenant/enter?oid=304\"},\"data\":{\"first\":{\"DATA\":\"银之鑫测试税局\"},\"keyword1\":{\"DATA\":\"申报纳税测试\"},\"keyword2\":{\"DATA\":\"2014年9月22日\"},\"keyword3\":{\"DATA\":\"1，3，5\"},\"keyword4\":{\"DATA\":\"A001\"},\"remark\":{\"DATA\":\"请您尽快到大厅等候叫号，过号作废。\"}}"
+}
+
+Date:2024-07-19 11:48:37.208 LogLevel:Information
+Message:Executing endpoint '"Message.WebApi.Controllers.InfoController.Post (Message.WebApi)"'
+
+Date:2024-07-19 11:48:37.212 LogLevel:Information
+Message:Route matched with "{action = \"Post\", controller = \"Info\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Common.Notify.DTO.SendTextInDto)" on controller "Message.WebApi.Controllers.InfoController" ("Message.WebApi").
+
+Date:2024-07-19 11:48:37.217 LogLevel:Information
+Message:收到消息queue-webchat-temp,topic-webchat-temp：{"MsgType":4,"Subject":"模板消息测试微信","SendTo":["oSBYsuJY1DenowNCjr_YAnz9HkTE","oSBYsuK1RRe_iRAzWfib85V3byPw","oSBYsuBaOcgurf9ruM0lu1xYa92I"],"Content":"{\"template_id\":\"Tbbxvd5A58tM67lVfRhJ3-z7DpZcWZJk7aQckMxks6Q\",\"url\":\"https://mp.weixin.qq.com/s/a-WQKTKJrVt-L92fVeoC4Q\",\"miniprogram\":{\"appid\":\"wx816e37b1b1e3c183\",\"pagepath\":\"/pages/index/tenant/enter?oid=304\"},\"data\":{\"first\":{\"DATA\":\"银之鑫测试税局\"},\"keyword1\":{\"DATA\":\"申报纳税测试\"},\"keyword2\":{\"DATA\":\"2014年9月22日\"},\"keyword3\":{\"DATA\":\"1，3，5\"},\"keyword4\":{\"DATA\":\"A001\"},\"remark\":{\"DATA\":\"请您尽快到大厅等候叫号，过号作废。\"}}"}
+
+Date:2024-07-19 11:48:37.235 LogLevel:Information
+Message:Executing "OkObjectResult", writing value of type '"Common.Notify.DTO.ResultOutDto"'.
+
+Date:2024-07-19 11:48:37.236 LogLevel:Information
+Message:Executed action "Message.WebApi.Controllers.InfoController.Post (Message.WebApi)" in 23.9252ms
+
+Date:2024-07-19 11:48:37.237 LogLevel:Information
+Message:Executed endpoint '"Message.WebApi.Controllers.InfoController.Post (Message.WebApi)"'
+
+Date:2024-07-19 11:48:37.238 LogLevel:Information
+Message:Request finished "HTTP/1.1" "POST" "http"://"localhost:5000""""/api/Info/send""" - 200 45 "application/json; charset=utf-8" 32.6439ms
+
+Date:2024-07-19 12:00:06.496 LogLevel:Information
+Message:Application is shutting down...
+
+Date:2024-07-19 12:00:16.706 LogLevel:Information
+Message:Now listening on: "http://[::]:5000"
+
+Date:2024-07-19 12:00:16.804 LogLevel:Information
+Message:Application started. Press Ctrl+C to shut down.
+
+Date:2024-07-19 12:00:16.806 LogLevel:Information
+Message:Hosting environment: "Development"
+
+Date:2024-07-19 12:00:16.806 LogLevel:Information
+Message:Content root path: "D:\Temp\msg-push\INotify-sp\Message.WebApi"
+
+Date:2024-07-19 12:00:16.881 LogLevel:Information
+Message:Request starting "HTTP/1.1" "GET" "http"://"127.0.0.1:5000""""/dapr/config""" - "application/json" null
+
+Date:2024-07-19 12:00:16.988 LogLevel:Information
+Message:[07/19/2024 04:00:16收到请求] GET /dapr/config
+Request Body: 空
+
+Date:2024-07-19 12:00:17.001 LogLevel:Information
+Message:Request finished "HTTP/1.1" "GET" "http"://"127.0.0.1:5000""""/dapr/config""" - 404 0 null 123.1403ms
+
+Date:2024-07-19 12:00:17.011 LogLevel:Information
+Message:Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "http"://"127.0.0.1:5000""""/dapr/config", Response status code: 404
+
+Date:2024-07-19 12:00:17.273 LogLevel:Information
+Message:Request starting "HTTP/1.1" "GET" "http"://"127.0.0.1:5000""""/dapr/subscribe""" - "application/json" null
+
+Date:2024-07-19 12:00:17.277 LogLevel:Information
+Message:[07/19/2024 04:00:17收到请求] GET /dapr/subscribe
+Request Body: 空
+
+Date:2024-07-19 12:00:17.278 LogLevel:Information
+Message:Request finished "HTTP/1.1" "GET" "http"://"127.0.0.1:5000""""/dapr/subscribe""" - 404 0 null 5.0304ms
+
+Date:2024-07-19 12:00:17.279 LogLevel:Information
+Message:Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "http"://"127.0.0.1:5000""""/dapr/subscribe", Response status code: 404
+
+Date:2024-07-19 12:00:41.892 LogLevel:Information
+Message:Request starting "HTTP/1.1" "POST" "http"://"localhost:5000""""/api/Info/send""" - "application/json-patch+json" 875
+
+Date:2024-07-19 12:00:41.918 LogLevel:Information
+Message:[07/19/2024 04:00:41收到请求] POST /api/Info/send
+Request Body: {
+  "msgType": 4,
+  "subject": "模板消息测试微信",
+  "sendTo": [
+    "oSBYsuJY1DenowNCjr_YAnz9HkTE","oSBYsuK1RRe_iRAzWfib85V3byPw","oSBYsuBaOcgurf9ruM0lu1xYa92I"
+  ],
+  "TestToken": "82_t5v_h-sKyAgoWyZryG__crSTapAyVy8lEBzeXj4aozslrPHi3oq3qU1moKoXH29SwBco95Ef86EG2IrawZycbRVGjIBfcVzVcGsxlK62aRlFe0jXkhQp6vPH8coPDWcAEAHVO",
+  "content": "{\"template_id\":\"Tbbxvd5A58tM67lVfRhJ3-z7DpZcWZJk7aQckMxks6Q\",\"url\":\"https://mp.weixin.qq.com/s/a-WQKTKJrVt-L92fVeoC4Q\",\"miniprogram\":{\"appid\":\"wx816e37b1b1e3c183\",\"pagepath\":\"/pages/index/tenant/enter?oid=304\"},\"data\":{\"first\":{\"DATA\":\"银之鑫测试税局\"},\"keyword1\":{\"DATA\":\"申报纳税测试\"},\"keyword2\":{\"DATA\":\"2014年9月22日\"},\"keyword3\":{\"DATA\":\"1，3，5\"},\"keyword4\":{\"DATA\":\"A001\"},\"remark\":{\"DATA\":\"请您尽快到大厅等候叫号，过号作废。\"}}"
+}
+
+Date:2024-07-19 12:00:41.922 LogLevel:Information
+Message:Executing endpoint '"Message.WebApi.Controllers.InfoController.Post (Message.WebApi)"'
+
+Date:2024-07-19 12:00:41.968 LogLevel:Information
+Message:Route matched with "{action = \"Post\", controller = \"Info\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Common.Notify.DTO.SendTextInDto)" on controller "Message.WebApi.Controllers.InfoController" ("Message.WebApi").
+
+Date:2024-07-19 12:00:42.129 LogLevel:Information
+Message:收到消息queue-webchat-temp,topic-webchat-temp：{"MsgType":4,"Subject":"模板消息测试微信","SendTo":["oSBYsuJY1DenowNCjr_YAnz9HkTE","oSBYsuK1RRe_iRAzWfib85V3byPw","oSBYsuBaOcgurf9ruM0lu1xYa92I"],"TestToken":"82_t5v_h-sKyAgoWyZryG__crSTapAyVy8lEBzeXj4aozslrPHi3oq3qU1moKoXH29SwBco95Ef86EG2IrawZycbRVGjIBfcVzVcGsxlK62aRlFe0jXkhQp6vPH8coPDWcAEAHVO","Content":"{\"template_id\":\"Tbbxvd5A58tM67lVfRhJ3-z7DpZcWZJk7aQckMxks6Q\",\"url\":\"https://mp.weixin.qq.com/s/a-WQKTKJrVt-L92fVeoC4Q\",\"miniprogram\":{\"appid\":\"wx816e37b1b1e3c183\",\"pagepath\":\"/pages/index/tenant/enter?oid=304\"},\"data\":{\"first\":{\"DATA\":\"银之鑫测试税局\"},\"keyword1\":{\"DATA\":\"申报纳税测试\"},\"keyword2\":{\"DATA\":\"2014年9月22日\"},\"keyword3\":{\"DATA\":\"1，3，5\"},\"keyword4\":{\"DATA\":\"A001\"},\"remark\":{\"DATA\":\"请您尽快到大厅等候叫号，过号作废。\"}}"}
+
+Date:2024-07-19 12:00:42.317 LogLevel:Information
+Message:Executing "OkObjectResult", writing value of type '"Common.Notify.DTO.ResultOutDto"'.
+
+Date:2024-07-19 12:00:42.346 LogLevel:Information
+Message:Executed action "Message.WebApi.Controllers.InfoController.Post (Message.WebApi)" in 372.4175ms
+
+Date:2024-07-19 12:00:42.346 LogLevel:Information
+Message:Executed endpoint '"Message.WebApi.Controllers.InfoController.Post (Message.WebApi)"'
+
+Date:2024-07-19 12:00:42.347 LogLevel:Information
+Message:Request finished "HTTP/1.1" "POST" "http"://"localhost:5000""""/api/Info/send""" - 200 45 "application/json; charset=utf-8" 455.0718ms
+
+Date:2024-07-19 12:03:11.773 LogLevel:Information
+Message:Request starting "HTTP/1.1" "POST" "http"://"localhost:5000""""/api/Info/send""" - "application/json-patch+json" 875
+
+Date:2024-07-19 12:03:11.774 LogLevel:Information
+Message:[07/19/2024 04:03:11收到请求] POST /api/Info/send
+Request Body: {
+  "msgType": 4,
+  "subject": "模板消息测试微信",
+  "sendTo": [
+    "oSBYsuJY1DenowNCjr_YAnz9HkTE","oSBYsuK1RRe_iRAzWfib85V3byPw","oSBYsuBaOcgurf9ruM0lu1xYa92I"
+  ],
+  "TestToken": "82_t5v_h-sKyAgoWyZryG__crSTapAyVy8lEBzeXj4aozslrPHi3oq3qU1moKoXH29SwBco95Ef86EG2IrawZycbRVGjIBfcVzVcGsxlK62aRlFe0jXkhQp6vPH8coPDWcAEAHVO",
+  "content": "{\"template_id\":\"Tbbxvd5A58tM67lVfRhJ3-z7DpZcWZJk7aQckMxks6Q\",\"url\":\"https://mp.weixin.qq.com/s/a-WQKTKJrVt-L92fVeoC4Q\",\"miniprogram\":{\"appid\":\"wx816e37b1b1e3c183\",\"pagepath\":\"/pages/index/tenant/enter?oid=304\"},\"data\":{\"first\":{\"DATA\":\"银之鑫测试税局\"},\"keyword1\":{\"DATA\":\"申报纳税测试\"},\"keyword2\":{\"DATA\":\"2014年9月22日\"},\"keyword3\":{\"DATA\":\"1，3，5\"},\"keyword4\":{\"DATA\":\"A001\"},\"remark\":{\"DATA\":\"请您尽快到大厅等候叫号，过号作废。\"}}"
+}
+
+Date:2024-07-19 12:03:11.775 LogLevel:Information
+Message:Executing endpoint '"Message.WebApi.Controllers.InfoController.Post (Message.WebApi)"'
+
+Date:2024-07-19 12:03:11.776 LogLevel:Information
+Message:Route matched with "{action = \"Post\", controller = \"Info\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Common.Notify.DTO.SendTextInDto)" on controller "Message.WebApi.Controllers.InfoController" ("Message.WebApi").
+
+Date:2024-07-19 12:03:11.780 LogLevel:Information
+Message:收到消息queue-webchat-temp,topic-webchat-temp：{"MsgType":4,"Subject":"模板消息测试微信","SendTo":["oSBYsuJY1DenowNCjr_YAnz9HkTE","oSBYsuK1RRe_iRAzWfib85V3byPw","oSBYsuBaOcgurf9ruM0lu1xYa92I"],"TestToken":"82_t5v_h-sKyAgoWyZryG__crSTapAyVy8lEBzeXj4aozslrPHi3oq3qU1moKoXH29SwBco95Ef86EG2IrawZycbRVGjIBfcVzVcGsxlK62aRlFe0jXkhQp6vPH8coPDWcAEAHVO","Content":"{\"template_id\":\"Tbbxvd5A58tM67lVfRhJ3-z7DpZcWZJk7aQckMxks6Q\",\"url\":\"https://mp.weixin.qq.com/s/a-WQKTKJrVt-L92fVeoC4Q\",\"miniprogram\":{\"appid\":\"wx816e37b1b1e3c183\",\"pagepath\":\"/pages/index/tenant/enter?oid=304\"},\"data\":{\"first\":{\"DATA\":\"银之鑫测试税局\"},\"keyword1\":{\"DATA\":\"申报纳税测试\"},\"keyword2\":{\"DATA\":\"2014年9月22日\"},\"keyword3\":{\"DATA\":\"1，3，5\"},\"keyword4\":{\"DATA\":\"A001\"},\"remark\":{\"DATA\":\"请您尽快到大厅等候叫号，过号作废。\"}}"}
+
+Date:2024-07-19 12:03:11.795 LogLevel:Information
+Message:Executing "OkObjectResult", writing value of type '"Common.Notify.DTO.ResultOutDto"'.
+
+Date:2024-07-19 12:03:11.798 LogLevel:Information
+Message:Executed action "Message.WebApi.Controllers.InfoController.Post (Message.WebApi)" in 20.3587ms
+
+Date:2024-07-19 12:03:11.798 LogLevel:Information
+Message:Executed endpoint '"Message.WebApi.Controllers.InfoController.Post (Message.WebApi)"'
+
+Date:2024-07-19 12:03:11.799 LogLevel:Information
+Message:Request finished "HTTP/1.1" "POST" "http"://"localhost:5000""""/api/Info/send""" - 200 45 "application/json; charset=utf-8" 25.6017ms
+
+Date:2024-07-19 12:04:01.431 LogLevel:Information
+Message:Application is shutting down...
+
+Date:2024-07-19 12:04:26.104 LogLevel:Information
+Message:Now listening on: "http://[::]:5000"
+
+Date:2024-07-19 12:04:26.186 LogLevel:Information
+Message:Application started. Press Ctrl+C to shut down.
+
+Date:2024-07-19 12:04:26.187 LogLevel:Information
+Message:Hosting environment: "Development"
+
+Date:2024-07-19 12:04:26.187 LogLevel:Information
+Message:Content root path: "D:\Temp\msg-push\INotify-sp\Message.WebApi"
+
+Date:2024-07-19 12:04:26.256 LogLevel:Information
+Message:Request starting "HTTP/1.1" "GET" "http"://"127.0.0.1:5000""""/dapr/config""" - "application/json" null
+
+Date:2024-07-19 12:04:26.372 LogLevel:Information
+Message:[07/19/2024 04:04:26收到请求] GET /dapr/config
+Request Body: 空
+
+Date:2024-07-19 12:04:26.404 LogLevel:Information
+Message:Request finished "HTTP/1.1" "GET" "http"://"127.0.0.1:5000""""/dapr/config""" - 404 0 null 149.8581ms
+
+Date:2024-07-19 12:04:26.437 LogLevel:Information
+Message:Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "http"://"127.0.0.1:5000""""/dapr/config", Response status code: 404
+
+Date:2024-07-19 12:04:26.509 LogLevel:Information
+Message:Request starting "HTTP/1.1" "GET" "http"://"127.0.0.1:5000""""/dapr/subscribe""" - "application/json" null
+
+Date:2024-07-19 12:04:26.521 LogLevel:Information
+Message:[07/19/2024 04:04:26收到请求] GET /dapr/subscribe
+Request Body: 空
+
+Date:2024-07-19 12:04:26.522 LogLevel:Information
+Message:Request finished "HTTP/1.1" "GET" "http"://"127.0.0.1:5000""""/dapr/subscribe""" - 404 0 null 12.2495ms
+
+Date:2024-07-19 12:04:26.522 LogLevel:Information
+Message:Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "http"://"127.0.0.1:5000""""/dapr/subscribe", Response status code: 404
+
+Date:2024-07-19 12:04:33.085 LogLevel:Information
+Message:Request starting "HTTP/1.1" "POST" "http"://"localhost:5000""""/api/Info/send""" - "application/json-patch+json" 875
+
+Date:2024-07-19 12:04:33.113 LogLevel:Information
+Message:[07/19/2024 04:04:33收到请求] POST /api/Info/send
+Request Body: {
+  "msgType": 4,
+  "subject": "模板消息测试微信",
+  "sendTo": [
+    "oSBYsuJY1DenowNCjr_YAnz9HkTE","oSBYsuK1RRe_iRAzWfib85V3byPw","oSBYsuBaOcgurf9ruM0lu1xYa92I"
+  ],
+  "TestToken": "82_t5v_h-sKyAgoWyZryG__crSTapAyVy8lEBzeXj4aozslrPHi3oq3qU1moKoXH29SwBco95Ef86EG2IrawZycbRVGjIBfcVzVcGsxlK62aRlFe0jXkhQp6vPH8coPDWcAEAHVO",
+  "content": "{\"template_id\":\"Tbbxvd5A58tM67lVfRhJ3-z7DpZcWZJk7aQckMxks6Q\",\"url\":\"https://mp.weixin.qq.com/s/a-WQKTKJrVt-L92fVeoC4Q\",\"miniprogram\":{\"appid\":\"wx816e37b1b1e3c183\",\"pagepath\":\"/pages/index/tenant/enter?oid=304\"},\"data\":{\"first\":{\"DATA\":\"银之鑫测试税局\"},\"keyword1\":{\"DATA\":\"申报纳税测试\"},\"keyword2\":{\"DATA\":\"2014年9月22日\"},\"keyword3\":{\"DATA\":\"1，3，5\"},\"keyword4\":{\"DATA\":\"A001\"},\"remark\":{\"DATA\":\"请您尽快到大厅等候叫号，过号作废。\"}}"
+}
+
+Date:2024-07-19 12:04:33.115 LogLevel:Information
+Message:Executing endpoint '"Message.WebApi.Controllers.InfoController.Post (Message.WebApi)"'
+
+Date:2024-07-19 12:04:33.159 LogLevel:Information
+Message:Route matched with "{action = \"Post\", controller = \"Info\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Common.Notify.DTO.SendTextInDto)" on controller "Message.WebApi.Controllers.InfoController" ("Message.WebApi").
+
+Date:2024-07-19 12:04:33.309 LogLevel:Information
+Message:收到消息queue-webchat-temp,topic-webchat-temp：{"MsgType":4,"Subject":"模板消息测试微信","SendTo":["oSBYsuJY1DenowNCjr_YAnz9HkTE","oSBYsuK1RRe_iRAzWfib85V3byPw","oSBYsuBaOcgurf9ruM0lu1xYa92I"],"TestToken":"82_t5v_h-sKyAgoWyZryG__crSTapAyVy8lEBzeXj4aozslrPHi3oq3qU1moKoXH29SwBco95Ef86EG2IrawZycbRVGjIBfcVzVcGsxlK62aRlFe0jXkhQp6vPH8coPDWcAEAHVO","Content":"{\"template_id\":\"Tbbxvd5A58tM67lVfRhJ3-z7DpZcWZJk7aQckMxks6Q\",\"url\":\"https://mp.weixin.qq.com/s/a-WQKTKJrVt-L92fVeoC4Q\",\"miniprogram\":{\"appid\":\"wx816e37b1b1e3c183\",\"pagepath\":\"/pages/index/tenant/enter?oid=304\"},\"data\":{\"first\":{\"DATA\":\"银之鑫测试税局\"},\"keyword1\":{\"DATA\":\"申报纳税测试\"},\"keyword2\":{\"DATA\":\"2014年9月22日\"},\"keyword3\":{\"DATA\":\"1，3，5\"},\"keyword4\":{\"DATA\":\"A001\"},\"remark\":{\"DATA\":\"请您尽快到大厅等候叫号，过号作废。\"}}"}
+
+Date:2024-07-19 12:04:33.474 LogLevel:Information
+Message:Executing "OkObjectResult", writing value of type '"Common.Notify.DTO.ResultOutDto"'.
+
+Date:2024-07-19 12:04:33.497 LogLevel:Information
+Message:Executed action "Message.WebApi.Controllers.InfoController.Post (Message.WebApi)" in 331.8907ms
+
+Date:2024-07-19 12:04:33.497 LogLevel:Information
+Message:Executed endpoint '"Message.WebApi.Controllers.InfoController.Post (Message.WebApi)"'
+
+Date:2024-07-19 12:04:33.498 LogLevel:Information
+Message:Request finished "HTTP/1.1" "POST" "http"://"localhost:5000""""/api/Info/send""" - 200 45 "application/json; charset=utf-8" 412.2307ms
+
+Date:2024-07-19 12:08:21.605 LogLevel:Information
+Message:Request starting "HTTP/1.1" "POST" "http"://"localhost:5000""""/api/Info/send""" - "application/json-patch+json" 875
+
+Date:2024-07-19 12:08:21.607 LogLevel:Information
+Message:[07/19/2024 04:08:21收到请求] POST /api/Info/send
+Request Body: {
+  "msgType": 4,
+  "subject": "模板消息测试微信",
+  "sendTo": [
+    "oSBYsuJY1DenowNCjr_YAnz9HkTE","oSBYsuK1RRe_iRAzWfib85V3byPw","oSBYsuBaOcgurf9ruM0lu1xYa92I"
+  ],
+  "TestToken": "82_t5v_h-sKyAgoWyZryG__crSTapAyVy8lEBzeXj4aozslrPHi3oq3qU1moKoXH29SwBco95Ef86EG2IrawZycbRVGjIBfcVzVcGsxlK62aRlFe0jXkhQp6vPH8coPDWcAEAHVO",
+  "content": "{\"template_id\":\"Tbbxvd5A58tM67lVfRhJ3-z7DpZcWZJk7aQckMxks6Q\",\"url\":\"https://mp.weixin.qq.com/s/a-WQKTKJrVt-L92fVeoC4Q\",\"miniprogram\":{\"appid\":\"wx816e37b1b1e3c183\",\"pagepath\":\"/pages/index/tenant/enter?oid=304\"},\"data\":{\"first\":{\"DATA\":\"银之鑫测试税局\"},\"keyword1\":{\"DATA\":\"申报纳税测试\"},\"keyword2\":{\"DATA\":\"2014年9月22日\"},\"keyword3\":{\"DATA\":\"1，3，5\"},\"keyword4\":{\"DATA\":\"A001\"},\"remark\":{\"DATA\":\"请您尽快到大厅等候叫号，过号作废。\"}}"
+}
+
+Date:2024-07-19 12:08:21.607 LogLevel:Information
+Message:Executing endpoint '"Message.WebApi.Controllers.InfoController.Post (Message.WebApi)"'
+
+Date:2024-07-19 12:08:21.608 LogLevel:Information
+Message:Route matched with "{action = \"Post\", controller = \"Info\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Common.Notify.DTO.SendTextInDto)" on controller "Message.WebApi.Controllers.InfoController" ("Message.WebApi").
+
+Date:2024-07-19 12:08:21.611 LogLevel:Information
+Message:收到消息queue-webchat-temp,topic-webchat-temp：{"MsgType":4,"Subject":"模板消息测试微信","SendTo":["oSBYsuJY1DenowNCjr_YAnz9HkTE","oSBYsuK1RRe_iRAzWfib85V3byPw","oSBYsuBaOcgurf9ruM0lu1xYa92I"],"TestToken":"82_t5v_h-sKyAgoWyZryG__crSTapAyVy8lEBzeXj4aozslrPHi3oq3qU1moKoXH29SwBco95Ef86EG2IrawZycbRVGjIBfcVzVcGsxlK62aRlFe0jXkhQp6vPH8coPDWcAEAHVO","Content":"{\"template_id\":\"Tbbxvd5A58tM67lVfRhJ3-z7DpZcWZJk7aQckMxks6Q\",\"url\":\"https://mp.weixin.qq.com/s/a-WQKTKJrVt-L92fVeoC4Q\",\"miniprogram\":{\"appid\":\"wx816e37b1b1e3c183\",\"pagepath\":\"/pages/index/tenant/enter?oid=304\"},\"data\":{\"first\":{\"DATA\":\"银之鑫测试税局\"},\"keyword1\":{\"DATA\":\"申报纳税测试\"},\"keyword2\":{\"DATA\":\"2014年9月22日\"},\"keyword3\":{\"DATA\":\"1，3，5\"},\"keyword4\":{\"DATA\":\"A001\"},\"remark\":{\"DATA\":\"请您尽快到大厅等候叫号，过号作废。\"}}"}
+
+Date:2024-07-19 12:08:21.627 LogLevel:Information
+Message:Executing "OkObjectResult", writing value of type '"Common.Notify.DTO.ResultOutDto"'.
+
+Date:2024-07-19 12:08:21.628 LogLevel:Information
+Message:Executed action "Message.WebApi.Controllers.InfoController.Post (Message.WebApi)" in 19.7989ms
+
+Date:2024-07-19 12:08:21.628 LogLevel:Information
+Message:Executed endpoint '"Message.WebApi.Controllers.InfoController.Post (Message.WebApi)"'
+
+Date:2024-07-19 12:08:21.628 LogLevel:Information
+Message:Request finished "HTTP/1.1" "POST" "http"://"localhost:5000""""/api/Info/send""" - 200 45 "application/json; charset=utf-8" 23.928ms
+
+Date:2024-07-19 12:12:47.179 LogLevel:Information
+Message:Request starting "HTTP/1.1" "POST" "http"://"localhost:5000""""/api/Info/send""" - "application/json-patch+json" 875
+
+Date:2024-07-19 12:12:47.179 LogLevel:Information
+Message:[07/19/2024 04:12:47收到请求] POST /api/Info/send
+Request Body: {
+  "msgType": 4,
+  "subject": "模板消息测试微信",
+  "sendTo": [
+    "oSBYsuJY1DenowNCjr_YAnz9HkTE","oSBYsuK1RRe_iRAzWfib85V3byPw","oSBYsuBaOcgurf9ruM0lu1xYa92I"
+  ],
+  "TestToken": "82_t5v_h-sKyAgoWyZryG__crSTapAyVy8lEBzeXj4aozslrPHi3oq3qU1moKoXH29SwBco95Ef86EG2IrawZycbRVGjIBfcVzVcGsxlK62aRlFe0jXkhQp6vPH8coPDWcAEAHVO",
+  "content": "{\"template_id\":\"Tbbxvd5A58tM67lVfRhJ3-z7DpZcWZJk7aQckMxks6Q\",\"url\":\"https://mp.weixin.qq.com/s/a-WQKTKJrVt-L92fVeoC4Q\",\"miniprogram\":{\"appid\":\"wx816e37b1b1e3c183\",\"pagepath\":\"/pages/index/tenant/enter?oid=304\"},\"data\":{\"first\":{\"DATA\":\"银之鑫测试税局\"},\"keyword1\":{\"DATA\":\"申报纳税测试\"},\"keyword2\":{\"DATA\":\"2014年9月22日\"},\"keyword3\":{\"DATA\":\"1，3，5\"},\"keyword4\":{\"DATA\":\"A001\"},\"remark\":{\"DATA\":\"请您尽快到大厅等候叫号，过号作废。\"}}"
+}
+
+Date:2024-07-19 12:12:47.182 LogLevel:Information
+Message:Executing endpoint '"Message.WebApi.Controllers.InfoController.Post (Message.WebApi)"'
+
+Date:2024-07-19 12:12:47.183 LogLevel:Information
+Message:Route matched with "{action = \"Post\", controller = \"Info\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Common.Notify.DTO.SendTextInDto)" on controller "Message.WebApi.Controllers.InfoController" ("Message.WebApi").
+
+Date:2024-07-19 12:12:47.189 LogLevel:Information
+Message:收到消息queue-webchat-temp,topic-webchat-temp：{"MsgType":4,"Subject":"模板消息测试微信","SendTo":["oSBYsuJY1DenowNCjr_YAnz9HkTE","oSBYsuK1RRe_iRAzWfib85V3byPw","oSBYsuBaOcgurf9ruM0lu1xYa92I"],"TestToken":"82_t5v_h-sKyAgoWyZryG__crSTapAyVy8lEBzeXj4aozslrPHi3oq3qU1moKoXH29SwBco95Ef86EG2IrawZycbRVGjIBfcVzVcGsxlK62aRlFe0jXkhQp6vPH8coPDWcAEAHVO","Content":"{\"template_id\":\"Tbbxvd5A58tM67lVfRhJ3-z7DpZcWZJk7aQckMxks6Q\",\"url\":\"https://mp.weixin.qq.com/s/a-WQKTKJrVt-L92fVeoC4Q\",\"miniprogram\":{\"appid\":\"wx816e37b1b1e3c183\",\"pagepath\":\"/pages/index/tenant/enter?oid=304\"},\"data\":{\"first\":{\"DATA\":\"银之鑫测试税局\"},\"keyword1\":{\"DATA\":\"申报纳税测试\"},\"keyword2\":{\"DATA\":\"2014年9月22日\"},\"keyword3\":{\"DATA\":\"1，3，5\"},\"keyword4\":{\"DATA\":\"A001\"},\"remark\":{\"DATA\":\"请您尽快到大厅等候叫号，过号作废。\"}}"}
+
+Date:2024-07-19 12:12:47.211 LogLevel:Information
+Message:Executing "OkObjectResult", writing value of type '"Common.Notify.DTO.ResultOutDto"'.
+
+Date:2024-07-19 12:12:47.212 LogLevel:Information
+Message:Executed action "Message.WebApi.Controllers.InfoController.Post (Message.WebApi)" in 23.9736ms
+
+Date:2024-07-19 12:12:47.212 LogLevel:Information
+Message:Executed endpoint '"Message.WebApi.Controllers.InfoController.Post (Message.WebApi)"'
+
+Date:2024-07-19 12:12:47.212 LogLevel:Information
+Message:Request finished "HTTP/1.1" "POST" "http"://"localhost:5000""""/api/Info/send""" - 200 45 "application/json; charset=utf-8" 33.7168ms
+
+Date:2024-07-19 12:15:06.597 LogLevel:Information
+Message:Request starting "HTTP/1.1" "POST" "http"://"localhost:5000""""/api/Info/send""" - "application/json-patch+json" 875
+
+Date:2024-07-19 12:15:06.597 LogLevel:Information
+Message:[07/19/2024 04:15:06收到请求] POST /api/Info/send
+Request Body: {
+  "msgType": 4,
+  "subject": "模板消息测试微信",
+  "sendTo": [
+    "oSBYsuJY1DenowNCjr_YAnz9HkTE","oSBYsuK1RRe_iRAzWfib85V3byPw","oSBYsuBaOcgurf9ruM0lu1xYa92I"
+  ],
+  "TestToken": "82_t5v_h-sKyAgoWyZryG__crSTapAyVy8lEBzeXj4aozslrPHi3oq3qU1moKoXH29SwBco95Ef86EG2IrawZycbRVGjIBfcVzVcGsxlK62aRlFe0jXkhQp6vPH8coPDWcAEAHVO",
+  "content": "{\"template_id\":\"Tbbxvd5A58tM67lVfRhJ3-z7DpZcWZJk7aQckMxks6Q\",\"url\":\"https://mp.weixin.qq.com/s/a-WQKTKJrVt-L92fVeoC4Q\",\"miniprogram\":{\"appid\":\"wx816e37b1b1e3c183\",\"pagepath\":\"/pages/index/tenant/enter?oid=304\"},\"data\":{\"first\":{\"DATA\":\"银之鑫测试税局\"},\"keyword1\":{\"DATA\":\"申报纳税测试\"},\"keyword2\":{\"DATA\":\"2014年9月22日\"},\"keyword3\":{\"DATA\":\"1，3，5\"},\"keyword4\":{\"DATA\":\"A001\"},\"remark\":{\"DATA\":\"请您尽快到大厅等候叫号，过号作废。\"}}"
+}
+
+Date:2024-07-19 12:15:06.598 LogLevel:Information
+Message:Executing endpoint '"Message.WebApi.Controllers.InfoController.Post (Message.WebApi)"'
+
+Date:2024-07-19 12:15:06.598 LogLevel:Information
+Message:Route matched with "{action = \"Post\", controller = \"Info\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Common.Notify.DTO.SendTextInDto)" on controller "Message.WebApi.Controllers.InfoController" ("Message.WebApi").
+
+Date:2024-07-19 12:15:06.599 LogLevel:Information
+Message:收到消息queue-webchat-temp,topic-webchat-temp：{"MsgType":4,"Subject":"模板消息测试微信","SendTo":["oSBYsuJY1DenowNCjr_YAnz9HkTE","oSBYsuK1RRe_iRAzWfib85V3byPw","oSBYsuBaOcgurf9ruM0lu1xYa92I"],"TestToken":"82_t5v_h-sKyAgoWyZryG__crSTapAyVy8lEBzeXj4aozslrPHi3oq3qU1moKoXH29SwBco95Ef86EG2IrawZycbRVGjIBfcVzVcGsxlK62aRlFe0jXkhQp6vPH8coPDWcAEAHVO","Content":"{\"template_id\":\"Tbbxvd5A58tM67lVfRhJ3-z7DpZcWZJk7aQckMxks6Q\",\"url\":\"https://mp.weixin.qq.com/s/a-WQKTKJrVt-L92fVeoC4Q\",\"miniprogram\":{\"appid\":\"wx816e37b1b1e3c183\",\"pagepath\":\"/pages/index/tenant/enter?oid=304\"},\"data\":{\"first\":{\"DATA\":\"银之鑫测试税局\"},\"keyword1\":{\"DATA\":\"申报纳税测试\"},\"keyword2\":{\"DATA\":\"2014年9月22日\"},\"keyword3\":{\"DATA\":\"1，3，5\"},\"keyword4\":{\"DATA\":\"A001\"},\"remark\":{\"DATA\":\"请您尽快到大厅等候叫号，过号作废。\"}}"}
+
+Date:2024-07-19 12:15:06.601 LogLevel:Information
+Message:Executing "OkObjectResult", writing value of type '"Common.Notify.DTO.ResultOutDto"'.
+
+Date:2024-07-19 12:15:06.602 LogLevel:Information
+Message:Executed action "Message.WebApi.Controllers.InfoController.Post (Message.WebApi)" in 3.6263ms
+
+Date:2024-07-19 12:15:06.602 LogLevel:Information
+Message:Executed endpoint '"Message.WebApi.Controllers.InfoController.Post (Message.WebApi)"'
+
+Date:2024-07-19 12:15:06.602 LogLevel:Information
+Message:Request finished "HTTP/1.1" "POST" "http"://"localhost:5000""""/api/Info/send""" - 200 45 "application/json; charset=utf-8" 4.998ms
+
+Date:2024-07-19 12:21:32.657 LogLevel:Information
+Message:Request starting "HTTP/1.1" "POST" "http"://"localhost:5000""""/api/Info/send""" - "application/json-patch+json" 779
+
+Date:2024-07-19 12:21:32.659 LogLevel:Information
+Message:[07/19/2024 04:21:32收到请求] POST /api/Info/send
+Request Body: {
+  "msgType": 4,
+  "subject": "模板消息测试微信",
+  "sendTo": [
+    "oSBYsuJY1DenowNCjr_YAnz9HkTE","oSBYsuK1RRe_iRAzWfib85V3byPw","oSBYsuBaOcgurf9ruM0lu1xYa92I"
+  ],
+  "TestToken": "82_t5v_h-sKyAgoWyZryG__crSTapAyVy8lEBzeXj4aozslrPHi3oq3qU1moKoXH29SwBco95Ef86EG2IrawZycbRVGjIBfcVzVcGsxlK62aRlFe0jXkhQp6vPH8coPDWcAEAHVO",
+  "content": "{\"template_id\":\"Tbbxvd5A58tM67lVfRhJ3-z7DpZcWZJk7aQckMxks6Q\",\"url\":\"https://mp.weixin.qq.com/s/a-WQKTKJrVt-L92fVeoC4Q\",\"data\":{\"first\":{\"value\":\"银之鑫测试税局\"},\"keyword1\":{\"value\":\"申报纳税测试\"},\"keyword2\":{\"value\":\"2014年9月22日\"},\"keyword3\":{\"value\":\"1，3，5\"},\"keyword4\":{\"value\":\"A001\"},\"remark\":{\"value\":\"请您尽快到大厅等候叫号，过号作废。\"}}"
+}
+
+Date:2024-07-19 12:21:32.659 LogLevel:Information
+Message:Executing endpoint '"Message.WebApi.Controllers.InfoController.Post (Message.WebApi)"'
+
+Date:2024-07-19 12:21:32.660 LogLevel:Information
+Message:Route matched with "{action = \"Post\", controller = \"Info\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Common.Notify.DTO.SendTextInDto)" on controller "Message.WebApi.Controllers.InfoController" ("Message.WebApi").
+
+Date:2024-07-19 12:21:32.662 LogLevel:Information
+Message:收到消息queue-webchat-temp,topic-webchat-temp：{"MsgType":4,"Subject":"模板消息测试微信","SendTo":["oSBYsuJY1DenowNCjr_YAnz9HkTE","oSBYsuK1RRe_iRAzWfib85V3byPw","oSBYsuBaOcgurf9ruM0lu1xYa92I"],"TestToken":"82_t5v_h-sKyAgoWyZryG__crSTapAyVy8lEBzeXj4aozslrPHi3oq3qU1moKoXH29SwBco95Ef86EG2IrawZycbRVGjIBfcVzVcGsxlK62aRlFe0jXkhQp6vPH8coPDWcAEAHVO","Content":"{\"template_id\":\"Tbbxvd5A58tM67lVfRhJ3-z7DpZcWZJk7aQckMxks6Q\",\"url\":\"https://mp.weixin.qq.com/s/a-WQKTKJrVt-L92fVeoC4Q\",\"data\":{\"first\":{\"value\":\"银之鑫测试税局\"},\"keyword1\":{\"value\":\"申报纳税测试\"},\"keyword2\":{\"value\":\"2014年9月22日\"},\"keyword3\":{\"value\":\"1，3，5\"},\"keyword4\":{\"value\":\"A001\"},\"remark\":{\"value\":\"请您尽快到大厅等候叫号，过号作废。\"}}"}
+
+Date:2024-07-19 12:21:32.669 LogLevel:Information
+Message:Executing "OkObjectResult", writing value of type '"Common.Notify.DTO.ResultOutDto"'.
+
+Date:2024-07-19 12:21:32.670 LogLevel:Information
+Message:Executed action "Message.WebApi.Controllers.InfoController.Post (Message.WebApi)" in 9.2619ms
+
+Date:2024-07-19 12:21:32.670 LogLevel:Information
+Message:Executed endpoint '"Message.WebApi.Controllers.InfoController.Post (Message.WebApi)"'
+
+Date:2024-07-19 12:21:32.670 LogLevel:Information
+Message:Request finished "HTTP/1.1" "POST" "http"://"localhost:5000""""/api/Info/send""" - 200 45 "application/json; charset=utf-8" 13.1118ms
+
+Date:2024-07-19 14:13:48.820 LogLevel:Information
+Message:Application is shutting down...
+
+Date:2024-07-19 14:14:37.574 LogLevel:Information
+Message:Now listening on: "http://[::]:5000"
+
+Date:2024-07-19 14:14:37.679 LogLevel:Information
+Message:Application started. Press Ctrl+C to shut down.
+
+Date:2024-07-19 14:14:37.680 LogLevel:Information
+Message:Hosting environment: "Development"
+
+Date:2024-07-19 14:14:37.680 LogLevel:Information
+Message:Content root path: "D:\Temp\msg-push\INotify-sp\Message.WebApi"
+
+Date:2024-07-19 14:14:37.770 LogLevel:Information
+Message:Request starting "HTTP/1.1" "GET" "http"://"127.0.0.1:5000""""/dapr/config""" - "application/json" null
+
+Date:2024-07-19 14:14:37.917 LogLevel:Information
+Message:[07/19/2024 06:14:37收到请求] GET /dapr/config
+Request Body: 空
+
+Date:2024-07-19 14:14:37.924 LogLevel:Information
+Message:Request finished "HTTP/1.1" "GET" "http"://"127.0.0.1:5000""""/dapr/config""" - 404 0 null 160.4284ms
+
+Date:2024-07-19 14:14:37.934 LogLevel:Information
+Message:Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "http"://"127.0.0.1:5000""""/dapr/config", Response status code: 404
+
+Date:2024-07-19 14:14:38.235 LogLevel:Information
+Message:Request starting "HTTP/1.1" "GET" "http"://"127.0.0.1:5000""""/dapr/subscribe""" - "application/json" null
+
+Date:2024-07-19 14:14:38.240 LogLevel:Information
+Message:[07/19/2024 06:14:38收到请求] GET /dapr/subscribe
+Request Body: 空
+
+Date:2024-07-19 14:14:38.241 LogLevel:Information
+Message:Request finished "HTTP/1.1" "GET" "http"://"127.0.0.1:5000""""/dapr/subscribe""" - 404 0 null 5.6088ms
+
+Date:2024-07-19 14:14:38.242 LogLevel:Information
+Message:Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "http"://"127.0.0.1:5000""""/dapr/subscribe", Response status code: 404
+
+Date:2024-07-19 14:16:11.788 LogLevel:Information
+Message:Request starting "HTTP/1.1" "POST" "http"://"localhost:5000""""/api/Info/send""" - "application/json-patch+json" 160
+
+Date:2024-07-19 14:16:11.812 LogLevel:Information
+Message:[07/19/2024 06:16:11收到请求] POST /api/Info/send
+Request Body: {
+  "msgType": -1,
+  "subject": "测试队列标题",
+  "sendTo": [
+    "queu1","queu2","queu3","queu4","queu5","queu6"
+  ],
+  "content": "测试队列内容"
+}
+
+Date:2024-07-19 14:16:11.814 LogLevel:Information
+Message:Executing endpoint '"Message.WebApi.Controllers.InfoController.Post (Message.WebApi)"'
+
+Date:2024-07-19 14:16:11.848 LogLevel:Information
+Message:Route matched with "{action = \"Post\", controller = \"Info\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Common.Notify.DTO.SendTextInDto)" on controller "Message.WebApi.Controllers.InfoController" ("Message.WebApi").
+
+Date:2024-07-19 14:16:12.032 LogLevel:Information
+Message:收到消息queue-test,topic-test：{"MsgType":-1,"Subject":"测试队列标题","SendTo":["queu1","queu2","queu3","queu4","queu5","queu6"],"Content":"测试队列内容"}
+
+Date:2024-07-19 14:16:12.213 LogLevel:Information
+Message:Executing "OkObjectResult", writing value of type '"Common.Notify.DTO.ResultOutDto"'.
+
+Date:2024-07-19 14:16:12.237 LogLevel:Information
+Message:Executed action "Message.WebApi.Controllers.InfoController.Post (Message.WebApi)" in 383.2275ms
+
+Date:2024-07-19 14:16:12.237 LogLevel:Information
+Message:Executed endpoint '"Message.WebApi.Controllers.InfoController.Post (Message.WebApi)"'
+
+Date:2024-07-19 14:16:12.238 LogLevel:Information
+Message:Request finished "HTTP/1.1" "POST" "http"://"localhost:5000""""/api/Info/send""" - 200 45 "application/json; charset=utf-8" 450.0194ms
+
+Date:2024-07-19 14:17:51.552 LogLevel:Information
+Message:Now listening on: "http://[::]:5000"
+
+Date:2024-07-19 14:17:51.695 LogLevel:Information
+Message:Application started. Press Ctrl+C to shut down.
+
+Date:2024-07-19 14:17:51.696 LogLevel:Information
+Message:Hosting environment: "Development"
+
+Date:2024-07-19 14:17:51.696 LogLevel:Information
+Message:Content root path: "D:\Temp\msg-push\INotify-sp\Message.WebApi"
+
+Date:2024-07-19 14:17:51.707 LogLevel:Information
+Message:Request starting "HTTP/1.1" "GET" "http"://"127.0.0.1:5000""""/dapr/config""" - "application/json" null
+
+Date:2024-07-19 14:17:51.860 LogLevel:Information
+Message:[07/19/2024 06:17:51收到请求] GET /dapr/config
+Request Body: 空
+
+Date:2024-07-19 14:17:51.874 LogLevel:Information
+Message:Request finished "HTTP/1.1" "GET" "http"://"127.0.0.1:5000""""/dapr/config""" - 404 0 null 170.5303ms
+
+Date:2024-07-19 14:17:51.880 LogLevel:Information
+Message:Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "http"://"127.0.0.1:5000""""/dapr/config", Response status code: 404
+
+Date:2024-07-19 14:17:52.126 LogLevel:Information
+Message:Request starting "HTTP/1.1" "GET" "http"://"127.0.0.1:5000""""/dapr/subscribe""" - "application/json" null
+
+Date:2024-07-19 14:17:52.131 LogLevel:Information
+Message:[07/19/2024 06:17:52收到请求] GET /dapr/subscribe
+Request Body: 空
+
+Date:2024-07-19 14:17:52.132 LogLevel:Information
+Message:Request finished "HTTP/1.1" "GET" "http"://"127.0.0.1:5000""""/dapr/subscribe""" - 404 0 null 5.6122ms
+
+Date:2024-07-19 14:17:52.132 LogLevel:Information
+Message:Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "http"://"127.0.0.1:5000""""/dapr/subscribe", Response status code: 404
+
+Date:2024-07-19 14:17:56.838 LogLevel:Information
+Message:Request starting "HTTP/1.1" "POST" "http"://"localhost:5000""""/api/Info/send""" - "application/json-patch+json" 160
+
+Date:2024-07-19 14:17:56.869 LogLevel:Information
+Message:[07/19/2024 06:17:56收到请求] POST /api/Info/send
+Request Body: {
+  "msgType": -1,
+  "subject": "测试队列标题",
+  "sendTo": [
+    "queu1","queu2","queu3","queu4","queu5","queu6"
+  ],
+  "content": "测试队列内容"
+}
+
+Date:2024-07-19 14:17:56.871 LogLevel:Information
+Message:Executing endpoint '"Message.WebApi.Controllers.InfoController.Post (Message.WebApi)"'
+
+Date:2024-07-19 14:17:56.962 LogLevel:Information
+Message:Route matched with "{action = \"Post\", controller = \"Info\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Common.Notify.DTO.SendTextInDto)" on controller "Message.WebApi.Controllers.InfoController" ("Message.WebApi").
+
+Date:2024-07-19 14:17:57.322 LogLevel:Information
+Message:收到消息queue-test,topic-test：{"MsgType":-1,"Subject":"测试队列标题","SendTo":["queu1","queu2","queu3","queu4","queu5","queu6"],"Content":"测试队列内容"}
+
+Date:2024-07-19 14:17:57.619 LogLevel:Information
+Message:Executing "OkObjectResult", writing value of type '"Common.Notify.DTO.ResultOutDto"'.
+
+Date:2024-07-19 14:17:57.642 LogLevel:Information
+Message:Executed action "Message.WebApi.Controllers.InfoController.Post (Message.WebApi)" in 674.7019ms
+
+Date:2024-07-19 14:17:57.642 LogLevel:Information
+Message:Executed endpoint '"Message.WebApi.Controllers.InfoController.Post (Message.WebApi)"'
+
+Date:2024-07-19 14:17:57.642 LogLevel:Information
+Message:Request finished "HTTP/1.1" "POST" "http"://"localhost:5000""""/api/Info/send""" - 200 45 "application/json; charset=utf-8" 804.0873ms
+
+Date:2024-07-19 14:53:27.486 LogLevel:Information
+Message:Request starting "HTTP/1.1" "POST" "http"://"localhost:5000""""/api/Info/send""" - "application/json-patch+json" 548
+
+Date:2024-07-19 14:53:27.487 LogLevel:Information
+Message:[07/19/2024 06:53:27收到请求] POST /api/Info/send
+Request Body: {
+  "msgType": 4,
+  "subject": "模板消息测试微信",
+  "sendTo": [
+    "o-M_46MLshG_w4ppS1oIye-D2Ke4","o-M_46GJwT3Hl3DHrq9WNJ6LSxRo","o-M_46JRRaVsYS27ziGvuVVyrcj4"
+  ],
+  "TestToken": "82_RRVqobbu8kDEuhWoEaXXxhVFH3sAIRJ9SldV-w2FmPv7vM1-8Tsf15FhQBieWFzdVoOGYntOsZmNy21dhVk2nCbT_tfNpTNTctUJ9qCTu_wOjNf_uP327loT_YIDFGjAAANPQ",
+  "content": "{\"template_id\":\"2ZVo4qQ-qyADCycSSC34HIgnM_z4W0P1kxBNx5MyyCg\",\"url\":\"https://mp.weixin.qq.com/s/KM2RxlZjiVZdIvpiR3AZWA\",\"data\":{\"thing4\":{\"value\":\"张三\"},\"amount6\":{\"value\":1.01}}"
+}
+
+Date:2024-07-19 14:53:27.488 LogLevel:Information
+Message:Executing endpoint '"Message.WebApi.Controllers.InfoController.Post (Message.WebApi)"'
+
+Date:2024-07-19 14:53:27.488 LogLevel:Information
+Message:Route matched with "{action = \"Post\", controller = \"Info\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Common.Notify.DTO.SendTextInDto)" on controller "Message.WebApi.Controllers.InfoController" ("Message.WebApi").
+
+Date:2024-07-19 14:53:27.499 LogLevel:Information
+Message:收到消息queue-webchat-temp,topic-webchat-temp：{"MsgType":4,"Subject":"模板消息测试微信","SendTo":["o-M_46MLshG_w4ppS1oIye-D2Ke4","o-M_46GJwT3Hl3DHrq9WNJ6LSxRo","o-M_46JRRaVsYS27ziGvuVVyrcj4"],"TestToken":"82_RRVqobbu8kDEuhWoEaXXxhVFH3sAIRJ9SldV-w2FmPv7vM1-8Tsf15FhQBieWFzdVoOGYntOsZmNy21dhVk2nCbT_tfNpTNTctUJ9qCTu_wOjNf_uP327loT_YIDFGjAAANPQ","Content":"{\"template_id\":\"2ZVo4qQ-qyADCycSSC34HIgnM_z4W0P1kxBNx5MyyCg\",\"url\":\"https://mp.weixin.qq.com/s/KM2RxlZjiVZdIvpiR3AZWA\",\"data\":{\"thing4\":{\"value\":\"张三\"},\"amount6\":{\"value\":1.01}}"}
+
+Date:2024-07-19 14:53:27.503 LogLevel:Information
+Message:Executing "OkObjectResult", writing value of type '"Common.Notify.DTO.ResultOutDto"'.
+
+Date:2024-07-19 14:53:27.504 LogLevel:Information
+Message:Executed action "Message.WebApi.Controllers.InfoController.Post (Message.WebApi)" in 15.3402ms
+
+Date:2024-07-19 14:53:27.504 LogLevel:Information
+Message:Executed endpoint '"Message.WebApi.Controllers.InfoController.Post (Message.WebApi)"'
+
+Date:2024-07-19 14:53:27.505 LogLevel:Information
+Message:Request finished "HTTP/1.1" "POST" "http"://"localhost:5000""""/api/Info/send""" - 200 45 "application/json; charset=utf-8" 18.8288ms
+
+Date:2024-07-19 15:16:45.366 LogLevel:Information
+Message:Application is shutting down...
+
+Date:2024-07-19 15:17:20.283 LogLevel:Information
+Message:Now listening on: "http://[::]:5000"
+
+Date:2024-07-19 15:17:20.427 LogLevel:Information
+Message:Application started. Press Ctrl+C to shut down.
+
+Date:2024-07-19 15:17:20.428 LogLevel:Information
+Message:Hosting environment: "Development"
+
+Date:2024-07-19 15:17:20.429 LogLevel:Information
+Message:Content root path: "D:\Temp\msg-push\INotify-sp\Message.WebApi"
+
+Date:2024-07-19 15:17:20.451 LogLevel:Information
+Message:Request starting "HTTP/1.1" "GET" "http"://"127.0.0.1:5000""""/dapr/config""" - "application/json" null
+
+Date:2024-07-19 15:17:20.623 LogLevel:Information
+Message:[07/19/2024 07:17:20收到请求] GET /dapr/config
+Request Body: 空
+
+Date:2024-07-19 15:17:20.633 LogLevel:Information
+Message:Request finished "HTTP/1.1" "GET" "http"://"127.0.0.1:5000""""/dapr/config""" - 404 0 null 193.5326ms
+
+Date:2024-07-19 15:17:20.640 LogLevel:Information
+Message:Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "http"://"127.0.0.1:5000""""/dapr/config", Response status code: 404
+
+Date:2024-07-19 15:17:21.090 LogLevel:Information
+Message:Request starting "HTTP/1.1" "GET" "http"://"127.0.0.1:5000""""/dapr/subscribe""" - "application/json" null
+
+Date:2024-07-19 15:17:21.101 LogLevel:Information
+Message:[07/19/2024 07:17:21收到请求] GET /dapr/subscribe
+Request Body: 空
+
+Date:2024-07-19 15:17:21.102 LogLevel:Information
+Message:Request finished "HTTP/1.1" "GET" "http"://"127.0.0.1:5000""""/dapr/subscribe""" - 404 0 null 11.6789ms
+
+Date:2024-07-19 15:17:21.102 LogLevel:Information
+Message:Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "http"://"127.0.0.1:5000""""/dapr/subscribe", Response status code: 404
+
+Date:2024-07-19 15:18:01.045 LogLevel:Information
+Message:Request starting "HTTP/1.1" "POST" "http"://"localhost:5000""""/api/Info/send""" - "application/json-patch+json" 490
+
+Date:2024-07-19 15:18:01.061 LogLevel:Information
+Message:[07/19/2024 07:18:01收到请求] POST /api/Info/send
+Request Body: {
+  "msgType": 4,
+  "subject": "模板消息测试微信",
+  "sendTo": [
+    "o-M_46MLshG_w4ppS1oIye-D2Ke4"
+  ],
+  "TestToken": "82_RRVqobbu8kDEuhWoEaXXxhVFH3sAIRJ9SldV-w2FmPv7vM1-8Tsf15FhQBieWFzdVoOGYntOsZmNy21dhVk2nCbT_tfNpTNTctUJ9qCTu_wOjNf_uP327loT_YIDFGjAAANPQ",
+  "content": "{\"template_id\":\"2ZVo4qQ-qyADCycSSC34HIgnM_z4W0P1kxBNx5MyyCg\",\"url\":\"https://mp.weixin.qq.com/s/KM2RxlZjiVZdIvpiR3AZWA\",\"data\":{\"thing4\":{\"value\":\"张三\"},\"amount6\":{\"value\":\"1.01\"}}"
+}
+
+Date:2024-07-19 15:18:01.062 LogLevel:Information
+Message:Executing endpoint '"Message.WebApi.Controllers.InfoController.Post (Message.WebApi)"'
+
+Date:2024-07-19 15:18:01.093 LogLevel:Information
+Message:Route matched with "{action = \"Post\", controller = \"Info\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Common.Notify.DTO.SendTextInDto)" on controller "Message.WebApi.Controllers.InfoController" ("Message.WebApi").
+
+Date:2024-07-19 15:18:01.238 LogLevel:Information
+Message:收到消息queue-webchat-temp,topic-webchat-temp：{"MsgType":4,"Subject":"模板消息测试微信","SendTo":["o-M_46MLshG_w4ppS1oIye-D2Ke4"],"TestToken":"82_RRVqobbu8kDEuhWoEaXXxhVFH3sAIRJ9SldV-w2FmPv7vM1-8Tsf15FhQBieWFzdVoOGYntOsZmNy21dhVk2nCbT_tfNpTNTctUJ9qCTu_wOjNf_uP327loT_YIDFGjAAANPQ","Content":"{\"template_id\":\"2ZVo4qQ-qyADCycSSC34HIgnM_z4W0P1kxBNx5MyyCg\",\"url\":\"https://mp.weixin.qq.com/s/KM2RxlZjiVZdIvpiR3AZWA\",\"data\":{\"thing4\":{\"value\":\"张三\"},\"amount6\":{\"value\":\"1.01\"}}"}
+
+Date:2024-07-19 15:18:01.551 LogLevel:Information
+Message:Executing "OkObjectResult", writing value of type '"Common.Notify.DTO.ResultOutDto"'.
+
+Date:2024-07-19 15:18:01.578 LogLevel:Information
+Message:Executed action "Message.WebApi.Controllers.InfoController.Post (Message.WebApi)" in 477.7547ms
+
+Date:2024-07-19 15:18:01.579 LogLevel:Information
+Message:Executed endpoint '"Message.WebApi.Controllers.InfoController.Post (Message.WebApi)"'
+
+Date:2024-07-19 15:18:01.582 LogLevel:Information
+Message:Request finished "HTTP/1.1" "POST" "http"://"localhost:5000""""/api/Info/send""" - 200 45 "application/json; charset=utf-8" 536.8912ms
+
+Date:2024-07-19 15:18:27.269 LogLevel:Information
+Message:Request starting "HTTP/1.1" "POST" "http"://"localhost:5000""""/api/Info/send""" - "application/json-patch+json" 493
+
+Date:2024-07-19 15:18:27.272 LogLevel:Information
+Message:[07/19/2024 07:18:27收到请求] POST /api/Info/send
+Request Body: {
+  "msgType": 4,
+  "subject": "模板消息测试微信",
+  "sendTo": [
+    "o-M_46MLshG_w4ppS1oIye-D2Ke4"
+  ],
+  "TestToken": "82_RRVqobbu8kDEuhWoEaXXxhVFH3sAIRJ9SldV-w2FmPv7vM1-8Tsf15FhQBieWFzdVoOGYntOsZmNy21dhVk2nCbT_tfNpTNTctUJ9qCTu_wOjNf_uP327loT_YIDFGjAAANPQ",
+  "content": "{\"template_id\":\"2ZVo4qQ-qyADCycSSC34HIgnM_z4W0P1kxBNx5MyyCg\",\"url\":\"https://mp.weixin.qq.com/s/KM2RxlZjiVZdIvpiR3AZWA\",\"data\":{\"thing4\":{\"value\":\"张三\"},\"amount6\":{\"value\":\"1.01元\"}}"
+}
+
+Date:2024-07-19 15:18:27.274 LogLevel:Information
+Message:Executing endpoint '"Message.WebApi.Controllers.InfoController.Post (Message.WebApi)"'
+
+Date:2024-07-19 15:18:27.275 LogLevel:Information
+Message:Route matched with "{action = \"Post\", controller = \"Info\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Common.Notify.DTO.SendTextInDto)" on controller "Message.WebApi.Controllers.InfoController" ("Message.WebApi").
+
+Date:2024-07-19 15:18:27.284 LogLevel:Information
+Message:收到消息queue-webchat-temp,topic-webchat-temp：{"MsgType":4,"Subject":"模板消息测试微信","SendTo":["o-M_46MLshG_w4ppS1oIye-D2Ke4"],"TestToken":"82_RRVqobbu8kDEuhWoEaXXxhVFH3sAIRJ9SldV-w2FmPv7vM1-8Tsf15FhQBieWFzdVoOGYntOsZmNy21dhVk2nCbT_tfNpTNTctUJ9qCTu_wOjNf_uP327loT_YIDFGjAAANPQ","Content":"{\"template_id\":\"2ZVo4qQ-qyADCycSSC34HIgnM_z4W0P1kxBNx5MyyCg\",\"url\":\"https://mp.weixin.qq.com/s/KM2RxlZjiVZdIvpiR3AZWA\",\"data\":{\"thing4\":{\"value\":\"张三\"},\"amount6\":{\"value\":\"1.01元\"}}"}
+
+Date:2024-07-19 15:18:27.312 LogLevel:Information
+Message:Executing "OkObjectResult", writing value of type '"Common.Notify.DTO.ResultOutDto"'.
+
+Date:2024-07-19 15:18:27.313 LogLevel:Information
+Message:Executed action "Message.WebApi.Controllers.InfoController.Post (Message.WebApi)" in 38.1976ms
+
+Date:2024-07-19 15:18:27.316 LogLevel:Information
+Message:Executed endpoint '"Message.WebApi.Controllers.InfoController.Post (Message.WebApi)"'
+
+Date:2024-07-19 15:18:27.318 LogLevel:Information
+Message:Request finished "HTTP/1.1" "POST" "http"://"localhost:5000""""/api/Info/send""" - 200 45 "application/json; charset=utf-8" 49.726ms
+
+Date:2024-07-19 15:18:39.133 LogLevel:Information
+Message:Request starting "HTTP/1.1" "POST" "http"://"localhost:5000""""/api/Info/send""" - "application/json-patch+json" 486
+
+Date:2024-07-19 15:18:39.134 LogLevel:Information
+Message:[07/19/2024 07:18:39收到请求] POST /api/Info/send
+Request Body: {
+  "msgType": 4,
+  "subject": "模板消息测试微信",
+  "sendTo": [
+    "o-M_46MLshG_w4ppS1oIye-D2Ke4"
+  ],
+  "TestToken": "82_RRVqobbu8kDEuhWoEaXXxhVFH3sAIRJ9SldV-w2FmPv7vM1-8Tsf15FhQBieWFzdVoOGYntOsZmNy21dhVk2nCbT_tfNpTNTctUJ9qCTu_wOjNf_uP327loT_YIDFGjAAANPQ",
+  "content": "{\"template_id\":\"2ZVo4qQ-qyADCycSSC34HIgnM_z4W0P1kxBNx5MyyCg\",\"url\":\"https://mp.weixin.qq.com/s/KM2RxlZjiVZdIvpiR3AZWA\",\"data\":{\"thing4\":{\"value\":\"张三\"},\"amount6\":{\"value\":1.01}}"
+}
+
+Date:2024-07-19 15:18:39.135 LogLevel:Information
+Message:Executing endpoint '"Message.WebApi.Controllers.InfoController.Post (Message.WebApi)"'
+
+Date:2024-07-19 15:18:39.136 LogLevel:Information
+Message:Route matched with "{action = \"Post\", controller = \"Info\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Common.Notify.DTO.SendTextInDto)" on controller "Message.WebApi.Controllers.InfoController" ("Message.WebApi").
+
+Date:2024-07-19 15:18:39.145 LogLevel:Information
+Message:收到消息queue-webchat-temp,topic-webchat-temp：{"MsgType":4,"Subject":"模板消息测试微信","SendTo":["o-M_46MLshG_w4ppS1oIye-D2Ke4"],"TestToken":"82_RRVqobbu8kDEuhWoEaXXxhVFH3sAIRJ9SldV-w2FmPv7vM1-8Tsf15FhQBieWFzdVoOGYntOsZmNy21dhVk2nCbT_tfNpTNTctUJ9qCTu_wOjNf_uP327loT_YIDFGjAAANPQ","Content":"{\"template_id\":\"2ZVo4qQ-qyADCycSSC34HIgnM_z4W0P1kxBNx5MyyCg\",\"url\":\"https://mp.weixin.qq.com/s/KM2RxlZjiVZdIvpiR3AZWA\",\"data\":{\"thing4\":{\"value\":\"张三\"},\"amount6\":{\"value\":1.01}}"}
+
+Date:2024-07-19 15:18:39.159 LogLevel:Information
+Message:Executing "OkObjectResult", writing value of type '"Common.Notify.DTO.ResultOutDto"'.
+
+Date:2024-07-19 15:18:39.160 LogLevel:Information
+Message:Executed action "Message.WebApi.Controllers.InfoController.Post (Message.WebApi)" in 23.7022ms
+
+Date:2024-07-19 15:18:39.160 LogLevel:Information
+Message:Executed endpoint '"Message.WebApi.Controllers.InfoController.Post (Message.WebApi)"'
+
+Date:2024-07-19 15:18:39.160 LogLevel:Information
+Message:Request finished "HTTP/1.1" "POST" "http"://"localhost:5000""""/api/Info/send""" - 200 45 "application/json; charset=utf-8" 26.641ms
+
+Date:2024-07-19 15:19:26.459 LogLevel:Information
+Message:Request starting "HTTP/1.1" "POST" "http"://"localhost:5000""""/api/Info/send""" - "application/json-patch+json" 553
+
+Date:2024-07-19 15:19:26.460 LogLevel:Information
+Message:[07/19/2024 07:19:26收到请求] POST /api/Info/send
+Request Body: {
+  "msgType": 4,
+  "subject": "模板消息测试微信",
+  "sendTo": [
+    "o-M_46MLshG_w4ppS1oIye-D2Ke4","o-M_46GJwT3Hl3DHrq9WNJ6LSxRo","o-M_46JRRaVsYS27ziGvuVVyrcj4"
+  ],
+  "TestToken": "82_RRVqobbu8kDEuhWoEaXXxhVFH3sAIRJ9SldV-w2FmPv7vM1-8Tsf15FhQBieWFzdVoOGYntOsZmNy21dhVk2nCbT_tfNpTNTctUJ9qCTu_wOjNf_uP327loT_YIDFGjAAANPQ",
+  "content": "{\"template_id\":\"2ZVo4qQ-qyADCycSSC34HIgnM_z4W0P1kxBNx5MyyCg\",\"url\":\"https://mp.weixin.qq.com/s/KM2RxlZjiVZdIvpiR3AZWA\",\"data\":{\"thing4\":{\"value\":\"李四\"},\"amount6\":{\"value\":"1.01元"}}"
+}
+
+Date:2024-07-19 15:19:26.460 LogLevel:Information
+Message:Executing endpoint '"Message.WebApi.Controllers.InfoController.Post (Message.WebApi)"'
+
+Date:2024-07-19 15:19:26.461 LogLevel:Information
+Message:Route matched with "{action = \"Post\", controller = \"Info\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Common.Notify.DTO.SendTextInDto)" on controller "Message.WebApi.Controllers.InfoController" ("Message.WebApi").
+
+Date:2024-07-19 15:19:26.507 LogLevel:Information
+Message:Executing "BadRequestObjectResult", writing value of type '"Microsoft.AspNetCore.Mvc.ValidationProblemDetails"'.
+
+Date:2024-07-19 15:19:26.564 LogLevel:Information
+Message:Executed action "Message.WebApi.Controllers.InfoController.Post (Message.WebApi)" in 103.1598ms
+
+Date:2024-07-19 15:19:26.564 LogLevel:Information
+Message:Executed endpoint '"Message.WebApi.Controllers.InfoController.Post (Message.WebApi)"'
+
+Date:2024-07-19 15:19:26.564 LogLevel:Information
+Message:Request finished "HTTP/1.1" "POST" "http"://"localhost:5000""""/api/Info/send""" - 400 366 "application/problem+json; charset=utf-8" 105.4935ms
+
+Date:2024-07-19 15:19:57.710 LogLevel:Information
+Message:Request starting "HTTP/1.1" "POST" "http"://"localhost:5000""""/api/Info/send""" - "application/json-patch+json" 555
+
+Date:2024-07-19 15:19:57.711 LogLevel:Information
+Message:[07/19/2024 07:19:57收到请求] POST /api/Info/send
+Request Body: {
+  "msgType": 4,
+  "subject": "模板消息测试微信",
+  "sendTo": [
+    "o-M_46MLshG_w4ppS1oIye-D2Ke4","o-M_46GJwT3Hl3DHrq9WNJ6LSxRo","o-M_46JRRaVsYS27ziGvuVVyrcj4"
+  ],
+  "TestToken": "82_RRVqobbu8kDEuhWoEaXXxhVFH3sAIRJ9SldV-w2FmPv7vM1-8Tsf15FhQBieWFzdVoOGYntOsZmNy21dhVk2nCbT_tfNpTNTctUJ9qCTu_wOjNf_uP327loT_YIDFGjAAANPQ",
+  "content": "{\"template_id\":\"2ZVo4qQ-qyADCycSSC34HIgnM_z4W0P1kxBNx5MyyCg\",\"url\":\"https://mp.weixin.qq.com/s/KM2RxlZjiVZdIvpiR3AZWA\",\"data\":{\"thing4\":{\"value\":\"李四\"},\"amount6\":{\"value\":\"1.01元\"}}"
+}
+
+Date:2024-07-19 15:19:57.711 LogLevel:Information
+Message:Executing endpoint '"Message.WebApi.Controllers.InfoController.Post (Message.WebApi)"'
+
+Date:2024-07-19 15:19:57.711 LogLevel:Information
+Message:Route matched with "{action = \"Post\", controller = \"Info\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Common.Notify.DTO.SendTextInDto)" on controller "Message.WebApi.Controllers.InfoController" ("Message.WebApi").
+
+Date:2024-07-19 15:19:57.712 LogLevel:Information
+Message:收到消息queue-webchat-temp,topic-webchat-temp：{"MsgType":4,"Subject":"模板消息测试微信","SendTo":["o-M_46MLshG_w4ppS1oIye-D2Ke4","o-M_46GJwT3Hl3DHrq9WNJ6LSxRo","o-M_46JRRaVsYS27ziGvuVVyrcj4"],"TestToken":"82_RRVqobbu8kDEuhWoEaXXxhVFH3sAIRJ9SldV-w2FmPv7vM1-8Tsf15FhQBieWFzdVoOGYntOsZmNy21dhVk2nCbT_tfNpTNTctUJ9qCTu_wOjNf_uP327loT_YIDFGjAAANPQ","Content":"{\"template_id\":\"2ZVo4qQ-qyADCycSSC34HIgnM_z4W0P1kxBNx5MyyCg\",\"url\":\"https://mp.weixin.qq.com/s/KM2RxlZjiVZdIvpiR3AZWA\",\"data\":{\"thing4\":{\"value\":\"李四\"},\"amount6\":{\"value\":\"1.01元\"}}"}
+
+Date:2024-07-19 15:19:57.728 LogLevel:Information
+Message:Executing "OkObjectResult", writing value of type '"Common.Notify.DTO.ResultOutDto"'.
+
+Date:2024-07-19 15:19:57.728 LogLevel:Information
+Message:Executed action "Message.WebApi.Controllers.InfoController.Post (Message.WebApi)" in 16.99ms
+
+Date:2024-07-19 15:19:57.728 LogLevel:Information
+Message:Executed endpoint '"Message.WebApi.Controllers.InfoController.Post (Message.WebApi)"'
+
+Date:2024-07-19 15:19:57.729 LogLevel:Information
+Message:Request finished "HTTP/1.1" "POST" "http"://"localhost:5000""""/api/Info/send""" - 200 45 "application/json; charset=utf-8" 18.2044ms
+
+Date:2024-07-19 16:41:20.337 LogLevel:Information
+Message:Application is shutting down...

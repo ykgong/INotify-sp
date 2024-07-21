@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Common.Notify.MessageProvider;
+using Microsoft.Extensions.Configuration;
 using Serilog;
 using Serilog.Events;
 using Serilog.Formatting.Compact;
@@ -27,8 +28,14 @@ namespace Message.Subscript.Server.Extensions
                     .ReadFrom.Configuration(hostingContext.Configuration)
                     .Enrich.FromLogContext();
             });
-
+#if DEBUG
             builder.WebHost.UseUrls("http://*:5001");
+#endif
+
+            builder.Services.AddSingleton<MailProvider>();
+            builder.Services.AddSingleton<WechatProvider>();
+            builder.Services.AddSingleton<WechatTemplateProvider>();
+            builder.Services.AddSingleton<DingTalkProvider>();
 
             return builder;
         }

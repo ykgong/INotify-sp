@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace Message.WebApi.Extensions
+namespace Common.Notify.Tools
 {
     public static class JsonSerializerExtension
     {
@@ -63,15 +63,15 @@ namespace Message.WebApi.Extensions
 
         public static T FromJson<T>(this string json)
         {
-            return string.IsNullOrEmpty(json) ? default(T) : JsonConvert.DeserializeObject<T>(json, GetJsonSettings(_jsonSettings));
+            return string.IsNullOrEmpty(json) ? default : JsonConvert.DeserializeObject<T>(json, GetJsonSettings(_jsonSettings));
         }
         public static T FromJson<T>(this JToken json)
         {
-            return json == null ? default(T) : json.ToObject<T>();
+            return json == null ? default : json.ToObject<T>();
         }
         public static T FromJson<T>(this JObject json)
         {
-            return json == null ? default(T) : json.ToObject<T>();
+            return json == null ? default : json.ToObject<T>();
         }
 
         public static object FromJson(this string json, Type type)
@@ -82,7 +82,7 @@ namespace Message.WebApi.Extensions
 
     public class JsGuidConverter : JsonConverter
     {
-        public override void WriteJson(JsonWriter writer, object value, Newtonsoft.Json.JsonSerializer serializer)
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
             if (value == null)
             {
@@ -112,7 +112,7 @@ namespace Message.WebApi.Extensions
         }
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue,
-            Newtonsoft.Json.JsonSerializer serializer)
+            JsonSerializer serializer)
         {
 
             if (reader.TokenType == JsonToken.Null)

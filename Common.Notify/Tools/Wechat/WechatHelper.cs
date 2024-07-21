@@ -1,16 +1,31 @@
 ﻿using Common.Notify.Tools.Wechat.DTO;
 using Common.Notify.Tools.Wechat.DTO.Message;
 using Common.Notify.Tools.Wechat.DTO.Message.MessageDto;
-using Common.Notify.Tools.Wechat.Util;
+using System.Collections.Concurrent;
+using System.IO;
 
 namespace Common.Notify.Tools.Wechat
 {
     public static class WechatHelper
     {
+        public static readonly string baseUrl = "https://qyapi.weixin.qq.com/cgi-bin/";
+        private static readonly ConcurrentDictionary<string, AccessTokenOutDto> _WechatAccessToken = new ConcurrentDictionary<string, AccessTokenOutDto>();
+
         public static string GetToken(string corpid, string corpsecret)
         {
-            AccessTokenOutDto result = WechatHttpHelper.Get<AccessTokenOutDto>($"gettoken?corpid={corpid}&corpsecret={corpsecret}");
+            if (_WechatAccessToken.TryGetValue(corpid + "AccessToken", out AccessTokenOutDto accessTokenResp) && accessTokenResp != null && !accessTokenResp.is_expires)
+            {
+                return accessTokenResp.access_token;
+            }
 
+            string url = Path.Combine(baseUrl, $"gettoken?corpid={corpid}&corpsecret={corpsecret}");
+            AccessTokenOutDto result = HttpRequestHelper.Get<AccessTokenOutDto>(url);
+            //_logger.LogInformation($"请求基础AccessToken({appid}),返回:{responseString}"); 
+            if (result != null && !string.IsNullOrWhiteSpace(result.access_token))
+            {
+                _WechatAccessToken.AddOrUpdate(corpid + "AccessToken", result, (oldkey, oldvalue) => result);
+                return result.access_token;
+            }
             return result.access_token;
         }
 
@@ -24,7 +39,7 @@ namespace Common.Notify.Tools.Wechat
         {
             var token = GetToken(corpid, corpsecret);
 
-            var result = WechatHttpHelper.Get<DepartmentOutDto>($"department/list?access_token={token}");
+            var result = HttpRequestHelper.Get<DepartmentOutDto>(Path.Combine(baseUrl, $"department/list?access_token={token}"));
 
             return result;
         }
@@ -33,7 +48,7 @@ namespace Common.Notify.Tools.Wechat
         {
             var token = GetToken(corpid, corpsecret);
 
-            var departmentUser = WechatHttpHelper.Get<DepartmentUserSimple>($"user/simplelist?access_token={token}&department_id={departmentId}");
+            var departmentUser = HttpRequestHelper.Get<DepartmentUserSimple>(Path.Combine(baseUrl, $"user/simplelist?access_token={token}&department_id={departmentId}"));
 
             return departmentUser;
         }
@@ -43,7 +58,7 @@ namespace Common.Notify.Tools.Wechat
         {
             var token = GetToken(corpid, corpsecret);
 
-            var result = WechatHttpHelper.Get<DepartmentUserDetail>($"user/list?access_token={token}&department_id={departmentId}");
+            var result = HttpRequestHelper.Get<DepartmentUserDetail>(Path.Combine(baseUrl, $"user/list?access_token={token}&department_id={departmentId}"));
 
 
             return result;
@@ -59,7 +74,7 @@ namespace Common.Notify.Tools.Wechat
         {
             var token = GetToken(corpid, corpsecret);
 
-            var result = WechatHttpHelper.Post<SendMessageOutDto>($"message/send?access_token={token}", message);
+            var result = HttpRequestHelper.Post<SendMessageOutDto>(Path.Combine(baseUrl, $"message/send?access_token={token}"), message);
 
             return result;
         }
@@ -73,7 +88,7 @@ namespace Common.Notify.Tools.Wechat
         public static UserOutDto GetUserIdByPhone(string corpid, string corpsecret, string mobile)
         {
             var token = GetToken(corpid, corpsecret);
-            var result = WechatHttpHelper.Post<UserOutDto>($"user/getuserid?access_token={token}", new
+            var result = HttpRequestHelper.Post<UserOutDto>(Path.Combine(baseUrl, $"user/getuserid?access_token={token}"), new
             {
                 mobile= mobile
             });

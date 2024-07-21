@@ -25,6 +25,9 @@ namespace Common.Notify
                 case ConfigTypeEnum.WeChat:
                     provider = new WechatProvider();
                     break;
+                case ConfigTypeEnum.WeChatTemp:
+                    provider = new WechatTemplateProvider();
+                    break;
                 case ConfigTypeEnum.DingTalk:
                     provider = new DingTalkProvider();
                     break;
@@ -55,6 +58,9 @@ namespace Common.Notify
             {
                 case ConfigTypeEnum.WeChat:
                     provider = new WechatProvider();
+                    break;
+                case ConfigTypeEnum.WeChatTemp:
+                    provider = new WechatTemplateProvider();
                     break;
                 case ConfigTypeEnum.DingTalk:
                     provider = new DingTalkProvider();

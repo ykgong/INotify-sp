@@ -2,6 +2,7 @@
 using System.Text;
 using System.Threading.Tasks;
 using Common.Notify.DTO;
+using Common.Notify.Tools;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
@@ -60,7 +61,7 @@ namespace Message.Subscript.Server.Extensions
                 }
 
                 // 输出请求体内容到控制台
-                logger.LogInformation($"[{DateTime.UtcNow}收到请求] {context.Request.Method} {context.Request.Path}\r\nRequest Body: {requestBody}");
+                logger.LogInformation($"[{DateTime.UtcNow},{"".GetLocalIpAddress()}收到队列请求({context.Connection.RemoteIpAddress})] {context.Request.Method} {context.Request.Path}\r\nRequest Body: {requestBody}");
 
                 // 继续处理请求管道中的下一个中间件
                 await next(context);

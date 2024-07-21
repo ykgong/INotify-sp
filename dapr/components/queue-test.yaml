@@ -1,0 +1,40 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: queue-test
+spec:
+  type: pubsub.rabbitmq
+  version: v1
+  metadata:
+  - name: host
+    value: amqp://admin:q.123@dapr-rabbitmq:5672
+#  - name: username
+#    value: "admin"
+#  - name: password
+#    value: "q.123"
+#  - name: connectionString
+#    value: amqp://admin:q.123@dapr-rabbitmq:5672
+  - name: deletedWhenUnused
+    value: "false"
+  - name: deliveryMode #发布消息时的持久化模式,2持久化,其余非持久化,默认0
+    value: "0"
+  - name: durable #是否使用消息持久化默认false
+    value: "true"
+#  - name: autoAck #消息送到自动确认,默认false
+#    value: "false"
+  - name: reconnectWait
+    value: "0"
+#  - name: concurrency #并行处理多个消息默认parallel
+#    value: parallel
+
+#apiVersion: dapr.io/v1alpha1
+#kind: Component
+#metadata:
+#  name: queue-test
+#spec:
+#  type: pubsub.redis
+#  metadata:
+#  - name: redisHost
+#    value: dapr-redis:6379
+##  - name: redisPassword
+##    value: "q.123"

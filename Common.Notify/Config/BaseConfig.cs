@@ -2,5 +2,6 @@
 {
     public class BaseConfig
     {
+        public string ConfigName { get; set; }
     }
 }

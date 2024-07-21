@@ -1,9 +1,15 @@
-﻿using MailKit.Security;
+﻿using Common.Notify.Enums;
+using MailKit.Security;
 
 namespace Common.Notify.Config
 {
     public class MailConfig : BaseConfig
     {
+        public MailConfig()
+        {
+            ConfigName = ConfigTypeConst.QueueEMailConfig;
+        }
+
         /// <summary>
         /// 发件邮箱
         /// </summary>
@@ -20,7 +26,7 @@ namespace Common.Notify.Config
         /// <summary>
         /// 端口
         /// </summary>
-        public int MailPort { get; set; }
+        public int MailPort { get; set; } = 0;
 
 
         /// <summary>

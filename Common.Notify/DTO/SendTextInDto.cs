@@ -30,6 +30,10 @@ namespace Common.Notify.DTO
         /// 发送的目标
         /// </summary>
         public List<string> SendTo { get; set; }
+        /// <summary>
+        /// 测试token
+        /// </summary>
+        public string TestToken { get; set; }
 
         /// <summary>
         /// 发送的文本
@@ -54,9 +58,18 @@ namespace Common.Notify.DTO
                     queueName = ConfigTypeConst.QueueWeChat;
                     topic = ConfigTypeConst.QueueWeChatTopic;
                     break;
+                case ConfigTypeEnum.WeChatTemp:
+                    queueName = ConfigTypeConst.QueueWeChatTemp;
+                    topic = ConfigTypeConst.QueueWeChatTempTopic;
+                    break;
                 case ConfigTypeEnum.DingTalk:
                     queueName = ConfigTypeConst.QueueDingTalk;
                     topic = ConfigTypeConst.QueueDingTalkTopic;
+                    break;
+
+                case ConfigTypeEnum.Test:
+                    queueName = ConfigTypeConst.QueueTest;
+                    topic = ConfigTypeConst.QueueTestTopic;
                     break;
             }
 

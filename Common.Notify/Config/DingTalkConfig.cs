@@ -1,7 +1,13 @@
-﻿namespace Common.Notify.Config
+﻿using Common.Notify.Enums;
+
+namespace Common.Notify.Config
 {
     public class DingTalkConfig : BaseConfig
     {
+        public DingTalkConfig()
+        {
+            ConfigName = ConfigTypeConst.QueueDingTalkConfig;
+        }
         /// <summary>
         /// app id
         /// </summary>

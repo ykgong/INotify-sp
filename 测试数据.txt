@@ -1,0 +1,83 @@
+{
+  "msgType": -1,
+  "subject": "测试队列标题",
+  "sendTo": [
+    "queu1","queu2","queu3","queu4","queu5","queu6"
+  ],
+  "content": "测试队列内容"
+}
+
+{
+  "msgType": 0,
+  "subject": "消息测试企业微信",
+  "sendTo": [
+    "gongyinkui","LeiYang"
+  ],
+  "content": "你的快递已到，请携带工卡前往邮件中心领取。\n出发前可查看<a href=\"http://work.weixin.qq.com\">邮件中心视频实况</a>，聪明避开排队。"
+}
+
+{
+  "msgType": 2,
+  "subject": "消息测试邮件",
+  "sendTo": [
+    "g.yk@qq.com"
+  ],
+  "content": "这是一封基于分布式集群的消息队列邮件发送测试，收到不用回复"
+}
+
+微信模板消息-发送成功-但无内容
+{
+  "msgType": 4,
+  "subject": "模板消息测试微信",
+  "sendTo": [
+    "oSBYsuJY1DenowNCjr_YAnz9HkTE","oSBYsuK1RRe_iRAzWfib85V3byPw","oSBYsuBaOcgurf9ruM0lu1xYa92I"
+  ],
+  "TestToken": "82_t5v_h-sKyAgoWyZryG__crSTapAyVy8lEBzeXj4aozslrPHi3oq3qU1moKoXH29SwBco95Ef86EG2IrawZycbRVGjIBfcVzVcGsxlK62aRlFe0jXkhQp6vPH8coPDWcAEAHVO",
+  "content": "{\"template_id\":\"Tbbxvd5A58tM67lVfRhJ3-z7DpZcWZJk7aQckMxks6Q\",\"url\":\"https://mp.weixin.qq.com/s/a-WQKTKJrVt-L92fVeoC4Q\",\"data\":{\"first\":{\"value\":\"银之鑫测试税局\"},\"keyword1\":{\"value\":\"申报纳税测试\"},\"keyword2\":{\"value\":\"2014年9月22日\"},\"keyword3\":{\"value\":\"1，3，5\"},\"keyword4\":{\"value\":\"A001\"},\"remark\":{\"value\":\"请您尽快到大厅等候叫号，过号作废。\"}}}"
+}
+
+酉阳妇幼模板消息测试：https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx1f0702ad7548394a&secret=390acef2c66498e2fa975fada0b542df
+{
+  "msgType": 4,
+  "subject": "模板消息测试微信",
+  "sendTo": [
+    "o-M_46MLshG_w4ppS1oIye-D2Ke4","o-M_46GJwT3Hl3DHrq9WNJ6LSxRo","o-M_46JRRaVsYS27ziGvuVVyrcj4"
+  ],
+  "TestToken": "82_RRVqobbu8kDEuhWoEaXXxhVFH3sAIRJ9SldV-w2FmPv7vM1-8Tsf15FhQBieWFzdVoOGYntOsZmNy21dhVk2nCbT_tfNpTNTctUJ9qCTu_wOjNf_uP327loT_YIDFGjAAANPQ",
+  "content": "{\"template_id\":\"2ZVo4qQ-qyADCycSSC34HIgnM_z4W0P1kxBNx5MyyCg\",\"url\":\"https://mp.weixin.qq.com/s/KM2RxlZjiVZdIvpiR3AZWA\",\"data\":{\"thing4\":{\"value\":\"李四\"},\"amount6\":{\"value\":\"1.01元\"}}}"
+}
+
+//加小程序还有问题-要求公众号和小程序是同一主体-{"errcode":40013,"errmsg":"invalid appid rid: 6699e915-794592b5-490d59a4"}
+{
+  "msgType": 4,
+  "subject": "模板消息测试微信",
+  "sendTo": [
+    "oSBYsuJY1DenowNCjr_YAnz9HkTE","oSBYsuK1RRe_iRAzWfib85V3byPw","oSBYsuBaOcgurf9ruM0lu1xYa92I"
+  ],
+  "TestToken": "82_t5v_h-sKyAgoWyZryG__crSTapAyVy8lEBzeXj4aozslrPHi3oq3qU1moKoXH29SwBco95Ef86EG2IrawZycbRVGjIBfcVzVcGsxlK62aRlFe0jXkhQp6vPH8coPDWcAEAHVO",
+  "content": "{\"template_id\":\"Tbbxvd5A58tM67lVfRhJ3-z7DpZcWZJk7aQckMxks6Q\",\"url\":\"https://mp.weixin.qq.com/s/a-WQKTKJrVt-L92fVeoC4Q\",\"miniprogram\":{\"appid\":\"wx816e37b1b1e3c183\",\"pagepath\":\"/pages/index/tenant/enter?oid=304\"},\"data\":{\"first\":{\"DATA\":\"银之鑫测试税局\"},\"keyword1\":{\"DATA\":\"申报纳税测试\"},\"keyword2\":{\"DATA\":\"2014年9月22日\"},\"keyword3\":{\"DATA\":\"1，3，5\"},\"keyword4\":{\"DATA\":\"A001\"},\"remark\":{\"DATA\":\"请您尽快到大厅等候叫号，过号作废。\"}}}"
+}
+
+{
+	"touser": "OPENID",
+	"template_id": "ngqIpbwh8bUfcSsECmogfXcV14J0tQlEpBO27izEYtY",
+	"url": "http://weixin.qq.com/download",
+	"miniprogram": {
+		"appid": "xiaochengxuappid12345",
+		"pagepath": "index?foo=bar"
+	},
+	"client_msg_id": "MSG_000001",
+	"data": {
+
+		"keyword1": {
+			"value": "巧克力"
+		},
+		"keyword2": {
+			"value": "39.8元"
+		},
+		"keyword3": {
+			"value": "2014年9月22日"
+		}
+	}
+}
+

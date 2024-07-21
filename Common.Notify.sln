@@ -10,16 +10,41 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "解决方案项", "解决方案项", "{1C148B5F-567D-451A-B8AD-A80BD4210821}"
 	ProjectSection(SolutionItems) = preProject
 		Docker-Compose.txt = Docker-Compose.txt
-		queue-email.yaml = queue-email.yaml
-		message-webapi.yaml = message-webapi.yaml
-		queue-wechat.yaml = queue-wechat.yaml
-		queue-sms.yaml = queue-sms.yaml
 		单个启动项命令.txt = 单个启动项命令.txt
+		测试数据.txt = 测试数据.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Message.WebApi", "Message.WebApi\Message.WebApi.csproj", "{8AFC53B7-1285-4563-9127-897B1620A029}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Message.WebApi", "Message.WebApi\Message.WebApi.csproj", "{8AFC53B7-1285-4563-9127-897B1620A029}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Message.Subscript.Server", "Message.Subscript\Message.Subscript.Server.csproj", "{899BF822-E63C-4230-94EF-EF398A4065AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Message.Subscript.Server", "Message.Subscript\Message.Subscript.Server.csproj", "{899BF822-E63C-4230-94EF-EF398A4065AF}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{611F0297-AEB1-448D-B221-19AEC8718EBA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dapr", "dapr", "{3C3EB486-4230-4EC4-9202-1D012C4B0956}"
+	ProjectSection(SolutionItems) = preProject
+		dapr\config.yaml = dapr\config.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "components", "components", "{AD5A1982-135F-4825-9B2D-47AFF99F7971}"
+	ProjectSection(SolutionItems) = preProject
+		dapr\components\pubsub.yaml = dapr\components\pubsub.yaml
+		dapr\components\queue-email.yaml = dapr\components\queue-email.yaml
+		dapr\components\queue-sms.yaml = dapr\components\queue-sms.yaml
+		dapr\components\queue-test.yaml = dapr\components\queue-test.yaml
+		dapr\components\queue-webchat-temp.yaml = dapr\components\queue-webchat-temp.yaml
+		dapr\components\queue-webchat.yaml = dapr\components\queue-webchat.yaml
+		dapr\components\statestore.yaml = dapr\components\statestore.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "redsi", "redsi", "{67763A54-7114-42AD-933F-B4DD3F5212EE}"
+	ProjectSection(SolutionItems) = preProject
+		dapr\redis\redis.conf = dapr\redis\redis.conf
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "rabbitmq", "rabbitmq", "{342AB6C7-E78C-40F2-BB2C-DD371BB3CE2D}"
+	ProjectSection(SolutionItems) = preProject
+		dapr\rabbitmq\test.txt = dapr\rabbitmq\test.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,9 +68,19 @@ Global
 		{899BF822-E63C-4230-94EF-EF398A4065AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{899BF822-E63C-4230-94EF-EF398A4065AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{899BF822-E63C-4230-94EF-EF398A4065AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{611F0297-AEB1-448D-B221-19AEC8718EBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{611F0297-AEB1-448D-B221-19AEC8718EBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{611F0297-AEB1-448D-B221-19AEC8718EBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{611F0297-AEB1-448D-B221-19AEC8718EBA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3C3EB486-4230-4EC4-9202-1D012C4B0956} = {1C148B5F-567D-451A-B8AD-A80BD4210821}
+		{AD5A1982-135F-4825-9B2D-47AFF99F7971} = {3C3EB486-4230-4EC4-9202-1D012C4B0956}
+		{67763A54-7114-42AD-933F-B4DD3F5212EE} = {3C3EB486-4230-4EC4-9202-1D012C4B0956}
+		{342AB6C7-E78C-40F2-BB2C-DD371BB3CE2D} = {3C3EB486-4230-4EC4-9202-1D012C4B0956}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {73EF2ACC-BC75-4630-B933-51B142833307}

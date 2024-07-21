@@ -27,8 +27,9 @@ namespace Message.WebApi.Extensions
                     .ReadFrom.Configuration(hostingContext.Configuration)
                     .Enrich.FromLogContext();
             });
-
+#if DEBUG
             builder.WebHost.UseUrls("http://*:5000");
+#endif
 
             return builder;
         }

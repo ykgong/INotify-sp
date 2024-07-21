@@ -3,7 +3,7 @@ dapr run --app-id message --app-port 5000 dotnet run
 这里假设您的 API 入口服务使用了端口 5000
 
 启动邮件处理服务 (emailser)
-dapr run --app-id queue-email -- dotnet run
+dapr run --app-id queue-done --app-port 5001 -- dotnet run
 这里假设您的邮件处理服务是一个 .NET Core 控制台应用程序。
 
 启动监视服务 (wechat)

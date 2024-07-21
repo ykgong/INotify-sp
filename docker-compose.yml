@@ -1,0 +1,177 @@
+version: '3.4'
+
+services:
+  dapr-redis:
+    image: "redis:latest"
+    volumes:
+     - ./dapr/redis/redis.conf:/etc/redis/redis.conf
+     - ./dapr/redis/data/:/data/
+    command: redis-server /etc/redis/redis.conf --requirepass q.123
+    ports:
+      - "6378:6379"
+    networks:
+      - daprnet
+
+  dapr-rabbitmq:
+    image: "rabbitmq:3.9-management"
+    hostname: rabbitdapr
+    environment:
+      RABBITMQ_DEFAULT_VHOST: "/"
+      RABBITMQ_DEFAULT_USER: "admin"
+      RABBITMQ_DEFAULT_PASS: "q.123"
+    #runtime: runc
+    volumes:
+      - ./dapr/rabbitmq/data/:/var/lib/rabbitmq
+      - ./dapr/rabbitmq/log/:/var/log/rabbitmq
+    ports:
+      - "35672:15672"
+      - "35369:4369"
+      - "34672:5672"
+      - "33672:25672"
+    networks:
+      - daprnet
+
+  ############################
+  # Dapr actor placement service
+  ############################
+  dapr-placement:
+    image: "daprio/dapr"
+    command: ["./placement", "-port", "50006"]
+    ports:
+      - "50006:50006"
+    networks:
+      - daprnet
+
+  ############################
+  # Dapr zipkin service
+  ############################
+  dapr-zipkin:
+    image: "openzipkin/zipkin:latest"
+    command: ["/zipkin","start-zipkin"]
+    ports:
+      - "9412:9411"
+    networks:
+      - daprnet
+
+  msgsub-1:
+    image: ${DOCKER_REGISTRY-}msgsubapi
+    restart: always
+    build:
+      context: .
+      dockerfile: ./Message.Subscript/Dockerfile
+    container_name: msgsub-1
+    networks:
+      - daprnet
+    ports:
+      - "8081:8080"
+    depends_on:
+      - dapr-rabbitmq
+      - dapr-redis
+      - dapr-placement
+      - dapr-zipkin
+
+  dapr-msgsub-1:
+    image: "daprio/daprd:latest"
+    restart: always
+    command: [ "./daprd", "-app-id", "msgsub", "-app-port", "8080","-placement-host-address", "placement:50006","-components-path", "/dapr/components","-config", "/dapr/config.yaml"] #, "dapr_placement:58080"
+    volumes:
+      - "./dapr/:/dapr"
+    depends_on:
+      - msgsub-1
+      # - dapr_placement
+    # networks:
+    #   - daprnet
+    network_mode: "service:msgsub-1" 
+    # ports:
+    #   - "3500:3500"
+    #   - "50001:50001"
+
+  msgsub-2:
+    image: ${DOCKER_REGISTRY-}msgsubapi
+    restart: always
+    build:
+      context: .
+      dockerfile: ./Message.Subscript/Dockerfile
+    container_name: msgsub-2
+    ports:
+      - "8082:8080"
+    networks:
+      - daprnet
+    depends_on:
+      - dapr-rabbitmq
+      - dapr-redis
+      - dapr-placement
+      - dapr-zipkin
+
+  dapr-msgsub-2:
+    image: "daprio/daprd:latest"
+    restart: always
+    command: [ "./daprd", "-app-id", "msgsub", "-app-port", "8080","-placement-host-address", "placement:50006","-components-path", "/dapr/components","-config", "/dapr/config.yaml" ] #
+    volumes:
+      - "./dapr/:/dapr"
+    depends_on:
+      - msgsub-2
+      # - dapr_placement
+    # networks:
+    #   - daprnet
+    network_mode: "service:msgsub-2"
+    # ports:
+    #   - "3502:3500"
+    #   - "50002:50001"
+
+  msgapi:
+    image: ${DOCKER_REGISTRY-}msgwebapi
+    restart: always
+    build:
+      context: .
+      dockerfile: ./Message.WebApi/Dockerfile
+    container_name: msgwebapi
+    networks:
+      - daprnet
+    depends_on:
+      - dapr-rabbitmq
+      - dapr-redis
+      - dapr-placement
+      - dapr-zipkin
+    # network_mode: "bridge"
+    ports:
+      - "8080:8080"
+
+  dapr-msgapi:
+    image: "daprio/daprd:latest"
+    restart: always
+    command: [ "./daprd", "-app-id", "msgapi", "-app-port", "8080","-placement-host-address", "placement:50006","-components-path", "/dapr/components","-config", "/dapr/config.yaml" ] #
+    volumes:
+      - "./dapr/:/dapr"
+    depends_on:
+      - msgapi
+      # - dapr_placement
+    # networks:
+    #   - daprnet
+    network_mode: "service:msgapi"
+    # ports:
+    #   - "3503:3500"
+    #   - "50003:50001"
+
+  dapr-dashboard:
+    image: "daprio/dapr"
+    restart: always
+    command: [ "./daprd", "-app-id", "dashboard", "dashboard", "9999" ]
+    ports:
+      - "9999:9999"
+    networks: 
+      - daprnet
+    depends_on: 
+      - dapr-msgapi
+      - dapr-msgsub-1
+      - dapr-msgsub-2
+      - dapr-placement
+      - dapr-zipkin
+
+networks:
+  daprnet:
+    driver: bridge
+# networks: 
+#   default: 
+#     external:
+#       name: bridge

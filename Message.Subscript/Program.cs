@@ -1,6 +1,7 @@
 using Serilog;
 using System.Text;
 using Message.Subscript.Server.Extensions;
+using Common.Notify.Tools;
 
 
 namespace Message.Subscript.Server
@@ -19,8 +20,12 @@ namespace Message.Subscript.Server
             }).AddDapr();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
-            builder.AddHostConfig();
+            builder.Services.AddSwaggerGen(c => {
+                var basePath = Path.GetDirectoryName(typeof(Program).Assembly.Location);//获取应用程序所在目录（绝对，不受工作目录影响，建议采用此方法获取路径）
+                c.IncludeXmlComments(Path.Combine(basePath, "Common.Notify.xml"));
+                c.IncludeXmlComments(Path.Combine(basePath, "Message.Subscript.Server.xml"));
+            });
+            builder.AddHostConfig();            
 
             var app = builder.Build();
 

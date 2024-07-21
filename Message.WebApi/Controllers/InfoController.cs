@@ -4,6 +4,8 @@ using System.Text.Json;
 using Dapr.Client;
 using Common.Notify.DTO;
 using Message.WebApi.Extensions;
+using Common.Notify.Tools;
+using Common.Notify.Enums;
 
 namespace Message.WebApi.Controllers
 {
@@ -14,7 +16,7 @@ namespace Message.WebApi.Controllers
         private readonly DaprClient _daprClient;
         private readonly ILogger<InfoController> logger;
 
-        public InfoController(DaprClient daprClient,ILogger<InfoController> logger)
+        public InfoController(DaprClient daprClient, ILogger<InfoController> logger)
         {
             _daprClient = daprClient;
             this.logger = logger;
@@ -34,9 +36,28 @@ namespace Message.WebApi.Controllers
             return Ok(new ResultOutDto(1, "消息已经发送中."));
         }
 
-        private async Task StoreMessageInQueueAsync(string queueName,string topic, SendTextInDto message)
+        private async Task StoreMessageInQueueAsync(string queueName, string topic, SendTextInDto message)
         {
-            await _daprClient.PublishEventAsync(queueName.ToLower(), topic.ToLower(), message);
+            if (message.SendTo.Count > 1 && (message.MsgType == ConfigTypeEnum.WeChatTemp || message.MsgType == ConfigTypeEnum.Test))
+            {
+                //微信模板消息发送
+                var touser = new List<string>() { "" };
+                message.SendTo.ForEach(async toUser =>
+                {
+                    touser[0] = toUser;
+                    var msg = new SendTextInDto
+                    {
+                        SendTo = touser,
+                        MsgType = ConfigTypeEnum.WeChatTemp,
+                        Subject = message.Subject,
+                        Content = message.Content,
+                        TestToken = message.TestToken,
+                    };
+                    await _daprClient.PublishEventAsync(queueName.ToLower(), topic.ToLower(), msg);
+                });
+            }
+            else
+                await _daprClient.PublishEventAsync(queueName.ToLower(), topic.ToLower(), message);
         }
     }
 }

@@ -1,0 +1,41 @@
+
+Date:2024-07-18 17:28:03.780 LogLevel:Information
+Message:Application is shutting down...
+
+Date:2024-07-18 18:44:04.568 LogLevel:Information
+Message:Now listening on: "http://[::]:5000"
+
+Date:2024-07-18 18:44:04.700 LogLevel:Information
+Message:Request starting "HTTP/1.1" "GET" "http"://"127.0.0.1:5000""""/dapr/config""" - "application/json" null
+
+Date:2024-07-18 18:44:04.719 LogLevel:Information
+Message:Application started. Press Ctrl+C to shut down.
+
+Date:2024-07-18 18:44:04.720 LogLevel:Information
+Message:Hosting environment: "Development"
+
+Date:2024-07-18 18:44:04.720 LogLevel:Information
+Message:Content root path: "D:\Temp\msg-push\INotify-sp\Message.WebApi"
+
+Date:2024-07-18 18:44:04.923 LogLevel:Information
+Message:[07/18/2024 10:44:04收到请求] GET /dapr/config
+Request Body: 空
+
+Date:2024-07-18 18:44:04.934 LogLevel:Information
+Message:Request finished "HTTP/1.1" "GET" "http"://"127.0.0.1:5000""""/dapr/config""" - 404 0 null 242.9582ms
+
+Date:2024-07-18 18:44:04.947 LogLevel:Information
+Message:Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "http"://"127.0.0.1:5000""""/dapr/config", Response status code: 404
+
+Date:2024-07-18 18:44:05.489 LogLevel:Information
+Message:Request starting "HTTP/1.1" "GET" "http"://"127.0.0.1:5000""""/dapr/subscribe""" - "application/json" null
+
+Date:2024-07-18 18:44:05.495 LogLevel:Information
+Message:[07/18/2024 10:44:05收到请求] GET /dapr/subscribe
+Request Body: 空
+
+Date:2024-07-18 18:44:05.497 LogLevel:Information
+Message:Request finished "HTTP/1.1" "GET" "http"://"127.0.0.1:5000""""/dapr/subscribe""" - 404 0 null 7.8369ms
+
+Date:2024-07-18 18:44:05.497 LogLevel:Information
+Message:Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "http"://"127.0.0.1:5000""""/dapr/subscribe", Response status code: 404

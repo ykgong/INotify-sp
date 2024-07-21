@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  message.webapi:
+    image: ${DOCKER_REGISTRY-}messagewebapi
+    build:
+      context: .
+      dockerfile: Message.WebApi/Dockerfile
+
+  message.subscript.server:
+    image: ${DOCKER_REGISTRY-}messagesubscriptserver
+    build:
+      context: .
+      dockerfile: Message.Subscript/Dockerfile
+

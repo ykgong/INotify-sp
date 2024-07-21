@@ -33,7 +33,7 @@ namespace Common.Notify.MessageProvider
             WechatHelper.SendMessage(wechatConfig.Corpid, wechatConfig.Corpsecret, new TextInDto
             {
                 agentid = agentId,
-                touser = string.Join(',', dto.SendTo),
+                touser = string.Join('|', dto.SendTo),
                 msgtype = "text",
                 duplicate_check_interval = 1800,
                 text = new Text
