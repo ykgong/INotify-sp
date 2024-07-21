@@ -15,7 +15,7 @@ namespace Common.Notify.Test
                 MailHost = "smtp.exmail.qq.com",
                 MailPort = 465,
                 MailFrom = "gongyinkui@cqyzx.com",
-                MailPwd = "170506,.revV",
+                MailPwd = "",
                 SecurityType = MailKit.Security.SecureSocketOptions.Auto
 
             }, "测试", "测试邮件内容", new List<string>
