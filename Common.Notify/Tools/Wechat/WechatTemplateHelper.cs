@@ -8,6 +8,9 @@ using Common.Notify.Tools.Wechat.DTO.Message.MessageDto.Template;
 
 namespace Common.Notify.Tools.Wechat;
 
+/// <summary>
+/// 微信接口实现
+/// </summary>
 public static class WechatTemplateHelper
 {
     private static readonly ConcurrentDictionary<string, AccessTokenOutDto> _WechatAccessToken = new ConcurrentDictionary<string, AccessTokenOutDto>();
@@ -67,6 +70,30 @@ public static class WechatTemplateHelper
         }
         var url=string.Format(templateMsgUrl, token);
         var result = HttpRequestHelper.Post<SendMessageOutDto>(url, msg);
+
+        return result;
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="corpid"></param>
+    /// <param name="corpsecret"></param>
+
+    public static SendMessageOutDto SendMessage(string appid, string secret, string message, string token="")
+    {
+        Console.Write($"开始发送时：token：{string.Format(templateMsgUrl, token)},数据：" + message);
+        if (string.IsNullOrWhiteSpace(token))
+        {
+            token = GetAccessToken(appid, secret);
+        }
+
+        if (string.IsNullOrWhiteSpace(message) && string.IsNullOrWhiteSpace(token))
+        {
+            return new SendMessageOutDto { errcode = -1, errmsg = "消息或Token为空" };
+        }
+
+        var url =string.Format(templateMsgUrl, token);
+        var result = HttpRequestHelper.Post<SendMessageOutDto>(url, message);
 
         return result;
     }

@@ -4,6 +4,9 @@ using Common.Notify.Tools.Mail;
 
 namespace Common.Notify.MessageProvider
 {
+    /// <summary>
+    /// 邮件
+    /// </summary>
     public class MailProvider : BaseProvider
     {
         public void SendMessage(BaseConfig config, object message)

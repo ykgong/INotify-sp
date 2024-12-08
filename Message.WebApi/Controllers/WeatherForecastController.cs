@@ -4,7 +4,7 @@ namespace Message.WebApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    public class WeatherForecastController : ControllerBase//WeatherForecast
     {
         private static readonly string[] Summaries = new[]
         {

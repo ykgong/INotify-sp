@@ -1,0 +1,20 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: pubsub-rabbitmq
+spec:
+  type: pubsub.rabbitmq
+  metadata:
+  - name: connectionString
+    #value: amqp://admin:Cqyzx24-15@192.168.1.202:5672
+    value: amqp://admin:q.123@localhost:5672
+  - name: deletedWhenUnused #未处理的消息不删除
+    value: "false"
+  - name: deliveryMode #2持久化
+    value: "0"
+  - name: reconnectWait #重连等待时间
+    value: "2"
+  - name: enableDeadLetter #是否转入死信队列默认 "false"
+    value: "true"
+  - name: requeueInFailure #处理消息失败重新入队默认"false"
+    value: "true"

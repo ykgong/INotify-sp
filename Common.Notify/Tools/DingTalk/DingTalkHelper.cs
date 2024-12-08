@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 namespace Common.Notify.Tools.DingTalk
 {
+    /// <summary>
+    /// 钉钉接口实现
+    /// </summary>
     public static class DingTalkHelper
     {
         /// <summary>

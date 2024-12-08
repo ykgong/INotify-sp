@@ -2,11 +2,8 @@
 using System.Text;
 using System.Threading.Tasks;
 using Common.Notify.DTO;
+using Common.Notify.Security;
 using Common.Notify.Tools;
-using Message.WebApi.Extensions;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
 
 namespace Message.WebApi.Extensions
 {
@@ -37,16 +34,39 @@ namespace Message.WebApi.Extensions
             {
                 context.Request.EnableBuffering();//允许重复读取body
                                                   // 读取请求体内容
-                string requestBody="空";
+                string requestBody = "空";
                 // 读取请求体内容
-                if (context.Request.ContentLength.HasValue && context.Request.ContentLength > 0)
+                    if (context.Request.ContentLength.HasValue && context.Request.ContentLength > 0)
                 {
-                    using (var reader = new StreamReader(context.Request.Body, Encoding.UTF8, true, 2048, true))
+                    if (context.Request.ContentType != null && context.Request.ContentType.Contains("application/json"))
                     {
-                        requestBody = await reader.ReadToEndAsync();
+                        using (var reader = new StreamReader(context.Request.Body, Encoding.UTF8, true, 4096, true))
+                        {
+                            requestBody = await reader.ReadToEndAsync();
+                        }
+                        //context.Request.Body.Position= 0;
+                        context.Request.Body.Seek(0, SeekOrigin.Begin);
                     }
-                //context.Request.Body.Position= 0;
-                context.Request.Body.Seek(0, SeekOrigin.Begin);
+                    else
+                    {
+                        var tempBody = string.Empty;
+                        try
+                        {
+                            using (var reader = new StreamReader(context.Request.Body, Encoding.UTF8, true, 1024, true))
+                            {
+                                tempBody = await reader.ReadToEndAsync();
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            logger.LogError($"不允许请求的类型内容读取报错：{context.Request.ContentType}\r\nError：{ex.Message}");
+                        }
+                        context.Request.Body.Seek(0, SeekOrigin.Begin);
+
+                        logger.LogError($"不允许请求的类型：{context.Request.ContentType}\r\nBody：{tempBody}");
+                        var error = "不允许请求.";
+                        await HandleExceptionAsync(context, 500, error);
+                    }
                 }
                 else
                 {
@@ -64,8 +84,24 @@ namespace Message.WebApi.Extensions
                 // 输出请求体内容到控制台
                 logger.LogInformation($"[{DateTime.UtcNow}收到请求] {context.Request.Method} {context.Request.Path}\r\nRequest Body: {requestBody}");
 
-                // 继续处理请求管道中的下一个中间件
-                await next(context);
+                if (!string.IsNullOrWhiteSpace(requestBody) && !requestBody.Equals("空"))
+                {
+                    var requestObj = requestBody.FromJson<RequestIntDto<dynamic>>();
+                    var sign = requestObj.Signature;
+                    requestObj.Signature = null;
+                    var key = string.Empty;
+                    var requestInfo = requestObj.ToJson();
+                    if (!requestInfo.CheckSignatureOriginal(key, sign, m => logger.LogInformation(m), HashTypeEnum.HMACSHA256))
+                    {
+                        var error = "签名失败.";
+                        await HandleExceptionAsync(context, 500, error);
+                    }
+                    else
+                        await next(context);
+                }
+                else
+                    // 继续处理请求管道中的下一个中间件
+                    await next(context);
             }
             catch (Exception ex)
             {

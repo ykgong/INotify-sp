@@ -6,6 +6,9 @@ using System;
 
 namespace Common.Notify.MessageProvider
 {
+    /// <summary>
+    /// 企业微信
+    /// </summary>
     public class WechatProvider : BaseProvider
     {
         public void SendMessage(BaseConfig config, object message)

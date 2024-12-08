@@ -1,0 +1,75 @@
+
+Date:2024-12-04 13:42:11.837 LogLevel:Warning
+Message:Overriding HTTP_PORTS '"8080"' and HTTPS_PORTS '""'. Binding to values defined by URLS instead '"http://*:5000"'.
+
+Date:2024-12-04 13:42:12.113 LogLevel:Information
+Message:Now listening on: "http://[::]:5000"
+
+Date:2024-12-04 13:42:12.114 LogLevel:Information
+Message:Application started. Press Ctrl+C to shut down.
+
+Date:2024-12-04 13:42:12.115 LogLevel:Information
+Message:Hosting environment: "Production"
+
+Date:2024-12-04 13:42:12.116 LogLevel:Information
+Message:Content root path: "/app"
+
+Date:2024-12-04 13:50:42.543 LogLevel:Warning
+Message:Overriding HTTP_PORTS '"8080"' and HTTPS_PORTS '""'. Binding to values defined by URLS instead '"http://*:5000"'.
+
+Date:2024-12-04 13:50:42.827 LogLevel:Information
+Message:Now listening on: "http://[::]:5000"
+
+Date:2024-12-04 13:50:42.829 LogLevel:Information
+Message:Application started. Press Ctrl+C to shut down.
+
+Date:2024-12-04 13:50:42.830 LogLevel:Information
+Message:Hosting environment: "Production"
+
+Date:2024-12-04 13:50:42.831 LogLevel:Information
+Message:Content root path: "/app"
+
+Date:2024-12-04 14:09:43.137 LogLevel:Warning
+Message:Overriding HTTP_PORTS '"8080"' and HTTPS_PORTS '""'. Binding to values defined by URLS instead '"http://*:5000"'.
+
+Date:2024-12-04 14:09:43.414 LogLevel:Information
+Message:Now listening on: "http://[::]:5000"
+
+Date:2024-12-04 14:09:43.415 LogLevel:Information
+Message:Application started. Press Ctrl+C to shut down.
+
+Date:2024-12-04 14:09:43.416 LogLevel:Information
+Message:Hosting environment: "Production"
+
+Date:2024-12-04 14:09:43.417 LogLevel:Information
+Message:Content root path: "/app"
+
+Date:2024-12-04 14:56:27.906 LogLevel:Warning
+Message:Overriding HTTP_PORTS '"8080"' and HTTPS_PORTS '""'. Binding to values defined by URLS instead '"http://*:5000"'.
+
+Date:2024-12-04 14:56:28.182 LogLevel:Information
+Message:Now listening on: "http://[::]:5000"
+
+Date:2024-12-04 14:56:28.184 LogLevel:Information
+Message:Application started. Press Ctrl+C to shut down.
+
+Date:2024-12-04 14:56:28.184 LogLevel:Information
+Message:Hosting environment: "Production"
+
+Date:2024-12-04 14:56:28.185 LogLevel:Information
+Message:Content root path: "/app"
+
+Date:2024-12-04 15:34:31.420 LogLevel:Warning
+Message:Overriding HTTP_PORTS '"8080"' and HTTPS_PORTS '""'. Binding to values defined by URLS instead '"http://*:5000"'.
+
+Date:2024-12-04 15:34:31.802 LogLevel:Information
+Message:Now listening on: "http://[::]:5000"
+
+Date:2024-12-04 15:34:31.804 LogLevel:Information
+Message:Application started. Press Ctrl+C to shut down.
+
+Date:2024-12-04 15:34:31.805 LogLevel:Information
+Message:Hosting environment: "Production"
+
+Date:2024-12-04 15:34:31.805 LogLevel:Information
+Message:Content root path: "/app"

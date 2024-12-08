@@ -2,6 +2,9 @@ using Serilog;
 using System.Text;
 using Message.Subscript.Server.Extensions;
 using Common.Notify.Tools;
+using System.Diagnostics;
+using System.ComponentModel;
+using System.Management;
 
 
 namespace Message.Subscript.Server
@@ -10,6 +13,7 @@ namespace Message.Subscript.Server
     {
         public static void Main(string[] args)
         {
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
@@ -17,7 +21,7 @@ namespace Message.Subscript.Server
             builder.Services.AddControllers().AddNewtonsoftJson(options =>
             {
                 options.SerializerSettings.Set();
-            }).AddDapr();
+            }).AddMyDapr("SubWebApi",5001,35001,50002);
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen(c => {
@@ -41,5 +45,5 @@ namespace Message.Subscript.Server
             app.MapSubscribeHandler();//¿ªÆô¶©ÔÄ
             app.Run();
         }
-    }
+    }    
 }

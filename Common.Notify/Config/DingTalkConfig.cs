@@ -6,6 +6,7 @@ namespace Common.Notify.Config
     {
         public DingTalkConfig()
         {
+            //dapr配置的队列名称-邮件-config-dingtalk
             ConfigName = ConfigTypeConst.QueueDingTalkConfig;
         }
         /// <summary>

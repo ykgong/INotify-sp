@@ -22,6 +22,10 @@ namespace Common.Notify.DTO
         /// </summary>         
         public ConfigTypeEnum MsgType { get; set; }
         /// <summary>
+        /// 是否根据SendTo列表一条条发送
+        /// </summary>
+        public bool IsAll { get; set; } = false;
+        /// <summary>
         /// 主题-发送邮件时使用
         /// </summary>
         public string Subject { get; set; }

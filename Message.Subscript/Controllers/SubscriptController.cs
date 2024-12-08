@@ -9,8 +9,10 @@ using Dapr.Client;
 using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Org.BouncyCastle.Ocsp;
+using System.Configuration;
 using System.Text;
 using static MailKit.Net.Imap.ImapEvent;
 
@@ -26,8 +28,14 @@ namespace Message.Subscript.Server.Controllers
         private readonly WechatProvider wechatProvider;
         private readonly WechatTemplateProvider templateProvider;
         private readonly DingTalkProvider dingTalkProvider;
+        private readonly SmsProvider smsProvider;
+        private readonly IConfiguration configuration;
+        private readonly AesEncryption aesEncryption;
+        private readonly IMessageAccountHelper messageAccountHelper;
 
-        public SubscriptController(ILogger<SubscriptController> logger, DaprClient daprClient, MailProvider mailProvider, WechatProvider wechatProvider, WechatTemplateProvider templateProvider, DingTalkProvider dingTalkProvider)
+        public SubscriptController(ILogger<SubscriptController> logger, DaprClient daprClient, MailProvider mailProvider, 
+            WechatProvider wechatProvider, WechatTemplateProvider templateProvider, DingTalkProvider dingTalkProvider,SmsProvider smsProvider,
+            IConfiguration configuration, AesEncryption aesEncryption, IMessageAccountHelper messageAccountHelper)
         {
             this.logger = logger;
             this.daprClient = daprClient;
@@ -35,6 +43,10 @@ namespace Message.Subscript.Server.Controllers
             this.wechatProvider = wechatProvider;
             this.templateProvider = templateProvider;
             this.dingTalkProvider = dingTalkProvider;
+            this.smsProvider = smsProvider;
+            this.configuration = configuration;
+            this.aesEncryption = aesEncryption;
+            this.messageAccountHelper = messageAccountHelper;
         }
 
 
@@ -56,7 +68,7 @@ namespace Message.Subscript.Server.Controllers
 
         #region Email
 
-        [Topic(ConfigTypeConst.QueueEMail, ConfigTypeConst.QueueEMailTopic)]
+        [Topic(ConfigTypeConst.QueueName, ConfigTypeConst.QueueEMailTopic)]
         [HttpPost("sub-email")]
         public async Task<ActionResult> SubEmailAsync([FromBody] DaprInfo<SendTextInDto> message)
         {
@@ -65,13 +77,16 @@ namespace Message.Subscript.Server.Controllers
             //stream.Position = 0L;
             //await stream.ReadAsync(buffer, 0, buffer.Length);
             //var subContent = Encoding.UTF8.GetString(buffer);
-            //var message= subContent.FromJson<SendTextInDto>();
-            logger.LogInformation($"\r\n------------------\r\n收到[Email]订阅消息：{message.data.ToJson()}");
+            //logger.LogInformation($"\r\n------------------\r\n[Email]收到数据：{subContent}");
+            ////var message = subContent.FromJson<SendTextInDto>();
 
-            var stateValue = await daprClient.GetStateAsync<string>(ConfigTypeConst.StateRedis, ConfigTypeConst.QueueEMailConfig);
-            logger.LogInformation($"\r\n------------------\r\n获取[Email]配置信息：{stateValue}");
+            //var stateValue = await daprClient.GetSecretAsync(ConfigTypeConst.SecretStore, ConfigTypeConst.QueueEMailConfig);
 
-            var testData = stateValue.FromJson<MailConfig>();
+            //var secretValue= configuration.GetValue<string>($"secret:config:{ConfigTypeConst.QueueEMailConfig}");
+            //var secretStr= aesEncryption.Decrypt(secretValue);
+            //var testData= secretStr.FromJson<MailConfig>();
+
+            var testData =await messageAccountHelper.GetMessageConfig<MailConfig>(ConfigTypeConst.QueueEMailConfig);
 
             if (testData == null || string.IsNullOrWhiteSpace(testData.MailFrom) || string.IsNullOrWhiteSpace(testData.MailPwd) || string.IsNullOrWhiteSpace(testData.MailHost) || testData.MailPort <= 0)
             {
@@ -80,8 +95,8 @@ namespace Message.Subscript.Server.Controllers
             }
             mailProvider.SendMessage(testData, message.data);
 
-
-            return Ok("邮件处理中");
+            logger.LogInformation($"\r\n------------------\r\n[Email]已发送完成：{message.ToJson()}");
+            return Ok(message);
         }
         #endregion
 
@@ -102,11 +117,13 @@ namespace Message.Subscript.Server.Controllers
             //await stream.ReadAsync(buffer, 0, buffer.Length);
             //var subContent = Encoding.UTF8.GetString(buffer);
 
-            logger.LogInformation($"\r\n------------------\r\n收到[企业微信]订阅消息：{message.data.ToJson()}");
+            //logger.LogInformation($"\r\n------------------\r\n收到[企业微信]订阅消息：{message.data.ToJson()}");
 
-            var stateValue = await daprClient.GetStateAsync<string>(ConfigTypeConst.StateRedis, ConfigTypeConst.QueueWeChatConfig);
-            logger.LogInformation($"\r\n------------------\r\n获取[企业微信]配置信息：{stateValue}");
-            var testData = stateValue.FromJson<WechatConfig>();
+            //var stateValue = await daprClient.GetStateAsync<string>(ConfigTypeConst.StateRedis, ConfigTypeConst.QueueWeChatConfig);
+            //logger.LogInformation($"\r\n------------------\r\n获取[企业微信]配置信息：{stateValue}");
+            //var testData = stateValue.FromJson<WechatConfig>();
+
+            var testData = await messageAccountHelper.GetMessageConfig<WechatConfig>(ConfigTypeConst.QueueEMailConfig);
 
             if (testData == null || string.IsNullOrWhiteSpace(testData.AgengId) || string.IsNullOrWhiteSpace(testData.Corpid) || string.IsNullOrWhiteSpace(testData.Corpsecret))
             {
@@ -133,10 +150,12 @@ namespace Message.Subscript.Server.Controllers
             //await stream.ReadAsync(buffer, 0, buffer.Length);
             //var subContent = Encoding.UTF8.GetString(buffer);
 
-            logger.LogInformation($"\r\n------------------\r\n收到[微信模板消息]订阅消息：{message.data.ToJson()}");
-            var stateValue = await daprClient.GetStateAsync<string>(ConfigTypeConst.StateRedis, ConfigTypeConst.QueueWeChatTempConfig);
-            logger.LogInformation($"\r\n------------------\r\n获取[微信]配置信息：{stateValue}");
-            var testData = stateValue.FromJson<WechatTempConfig>();
+            //logger.LogInformation($"\r\n------------------\r\n收到[微信模板消息]订阅消息：{message.data.ToJson()}");
+            //var stateValue = await daprClient.GetStateAsync<string>(ConfigTypeConst.StateRedis, ConfigTypeConst.QueueWeChatTempConfig);
+            //logger.LogInformation($"\r\n------------------\r\n获取[微信]配置信息：{stateValue}");
+            //var testData = stateValue.FromJson<WechatTempConfig>();
+
+            var testData = await messageAccountHelper.GetMessageConfig<WechatTempConfig>(ConfigTypeConst.QueueEMailConfig);
             if (testData == null || string.IsNullOrWhiteSpace(testData.AppID) || string.IsNullOrWhiteSpace(testData.AppSecret))
             {
                 logger.LogInformation($"\r\n------------------\r\n微信模板消息未设置");
@@ -160,11 +179,21 @@ namespace Message.Subscript.Server.Controllers
             //await stream.ReadAsync(buffer, 0, buffer.Length);
             //var subContent = Encoding.UTF8.GetString(buffer);
 
-            logger.LogInformation($"\r\n------------------\r\n收到[编程式-redis]订阅消息：{message}");
+            //logger.LogInformation($"\r\n------------------\r\n收到[短信消息]订阅消息：{message.data.ToJson()}");
+            //var stateValue = await daprClient.GetStateAsync<string>(ConfigTypeConst.StateRedis, ConfigTypeConst.QueueSMSConfig);
+            //logger.LogInformation($"\r\n------------------\r\n获取[微信]配置信息：{stateValue}");
+            //var testData = stateValue.FromJson<SmsConfig>();
+
+            var testData = await messageAccountHelper.GetMessageConfig<SmsConfig>(ConfigTypeConst.QueueEMailConfig);
+            if (testData == null || string.IsNullOrWhiteSpace(testData.AppId) || string.IsNullOrWhiteSpace(testData.Secret))
+            {
+                logger.LogInformation($"\r\n------------------\r\n短信消息未设置");
+                return StatusCode(500, "n短信消息未设置");
+            }
+            smsProvider.SendMessage(testData, message.data);
             return Ok("收到[编程式]订阅消息：" + message);
         }
         #endregion
-
 
         #region dingtalk
 
@@ -179,6 +208,8 @@ namespace Message.Subscript.Server.Controllers
             //var subContent = Encoding.UTF8.GetString(buffer);
 
             logger.LogInformation($"\r\n------------------\r\n收到[编程式-redis]订阅消息：{message}");
+
+            var testData = await messageAccountHelper.GetMessageConfig<DingTalkConfig>(ConfigTypeConst.QueueEMailConfig);
             return Ok("收到[编程式]订阅消息：" + message);
         }
 

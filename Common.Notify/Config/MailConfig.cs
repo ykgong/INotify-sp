@@ -7,6 +7,7 @@ namespace Common.Notify.Config
     {
         public MailConfig()
         {
+            //dapr配置的队列名称-邮件-config-email
             ConfigName = ConfigTypeConst.QueueEMailConfig;
         }
 

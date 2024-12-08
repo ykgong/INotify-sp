@@ -7,7 +7,7 @@ spec:
   version: v1
   metadata:
   - name: host
-    value: amqp://admin:q.123@dapr-rabbitmq:5672
+    value: amqp://admin:q.123@dapr_rabbitmq:5672
 #  - name: username
 #    value: "admin"
 #  - name: password

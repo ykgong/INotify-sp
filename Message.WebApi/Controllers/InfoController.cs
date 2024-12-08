@@ -15,6 +15,7 @@ namespace Message.WebApi.Controllers
     {
         private readonly DaprClient _daprClient;
         private readonly ILogger<InfoController> logger;
+        private int[] msgType= new int[] { -1,0,1,2,3,4};
 
         public InfoController(DaprClient daprClient, ILogger<InfoController> logger)
         {
@@ -23,8 +24,9 @@ namespace Message.WebApi.Controllers
         }
 
         [HttpPost("send")]
-        public async Task<IActionResult> Post([FromBody] SendTextInDto message)
+        public async Task<IActionResult> Post([FromBody] RequestIntDto<SendTextInDto> requestMessage)
         {
+            var message = requestMessage.Data;
 
             // 存储消息到不同类型的队列
             var queueName = message.GetQueueTopicName(out var topic);
@@ -38,10 +40,11 @@ namespace Message.WebApi.Controllers
 
         private async Task StoreMessageInQueueAsync(string queueName, string topic, SendTextInDto message)
         {
-            if (message.SendTo.Count > 1 && (message.MsgType == ConfigTypeEnum.WeChatTemp || message.MsgType == ConfigTypeEnum.Test))
+            if (message.SendTo.Count > 1 && msgType.Contains((int)message.MsgType) && !message.IsAll)
             {
                 //微信模板消息发送
                 var touser = new List<string>() { "" };
+                var idx = 1;
                 message.SendTo.ForEach(async toUser =>
                 {
                     touser[0] = toUser;
@@ -50,14 +53,16 @@ namespace Message.WebApi.Controllers
                         SendTo = touser,
                         MsgType = ConfigTypeEnum.WeChatTemp,
                         Subject = message.Subject,
-                        Content = message.Content,
+                        Content = (idx++).ToString() + message.Content,
                         TestToken = message.TestToken,
                     };
-                    await _daprClient.PublishEventAsync(queueName.ToLower(), topic.ToLower(), msg);
+                    //await _daprClient.PublishEventAsync(queueName.ToLower(), topic.ToLower(), msg);
+                    await _daprClient.PublishEventAsync(ConfigTypeConst.QueueName.ToLower(), topic.ToLower(), msg);
                 });
             }
             else
-                await _daprClient.PublishEventAsync(queueName.ToLower(), topic.ToLower(), message);
+                //await _daprClient.PublishEventAsync(queueName.ToLower(), topic.ToLower(), message);
+                await _daprClient.PublishEventAsync(ConfigTypeConst.QueueName.ToLower(), topic.ToLower(), message);
         }
     }
 }

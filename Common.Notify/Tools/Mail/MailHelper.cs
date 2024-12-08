@@ -5,6 +5,9 @@ using System.Collections.Generic;
 
 namespace Common.Notify.Tools.Mail
 {
+    /// <summary>
+    /// 邮件接口实现
+    /// </summary>
     public static class MailHelper
     {
         /// <summary>

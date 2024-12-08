@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Notify", "Common.Notify\Common.Notify.csproj", "{B41B2E46-85B8-4A7F-9263-055F74586A6D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Message.Notify", "Common.Notify\Message.Notify.csproj", "{B41B2E46-85B8-4A7F-9263-055F74586A6D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Notify.Test", "Common.Notify.Test\Common.Notify.Test.csproj", "{09037DCF-35BC-4490-99E2-2EEE208CB6BB}"
 EndProject
@@ -27,6 +27,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dapr", "dapr", "{3C3EB486-4
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "components", "components", "{AD5A1982-135F-4825-9B2D-47AFF99F7971}"
 	ProjectSection(SolutionItems) = preProject
+		pubsub-rabbitmq.yaml = pubsub-rabbitmq.yaml
 		dapr\components\pubsub.yaml = dapr\components\pubsub.yaml
 		dapr\components\queue-email.yaml = dapr\components\queue-email.yaml
 		dapr\components\queue-sms.yaml = dapr\components\queue-sms.yaml

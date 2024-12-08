@@ -6,6 +6,9 @@ using System.IO;
 
 namespace Common.Notify.Tools.Wechat
 {
+    /// <summary>
+    /// 企业微信接口实现
+    /// </summary>
     public static class WechatHelper
     {
         public static readonly string baseUrl = "https://qyapi.weixin.qq.com/cgi-bin/";

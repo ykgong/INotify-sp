@@ -1,4 +1,5 @@
 ﻿using Common.Notify.MessageProvider;
+using Common.Notify.Tools;
 using Microsoft.Extensions.Configuration;
 using Serilog;
 using Serilog.Events;
@@ -33,9 +34,12 @@ namespace Message.Subscript.Server.Extensions
 #endif
 
             builder.Services.AddSingleton<MailProvider>();
+            builder.Services.AddSingleton<SmsProvider>();
             builder.Services.AddSingleton<WechatProvider>();
             builder.Services.AddSingleton<WechatTemplateProvider>();
             builder.Services.AddSingleton<DingTalkProvider>();
+            builder.Services.AddSingleton<AesEncryption>();
+            builder.Services.AddScoped<IMessageAccountHelper, MessageAccountHelper> ();
 
             return builder;
         }

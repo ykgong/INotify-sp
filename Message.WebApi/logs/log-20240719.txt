@@ -316,7 +316,7 @@ Request Body: {
   "sendTo": [
     "oSBYsuJY1DenowNCjr_YAnz9HkTE","oSBYsuK1RRe_iRAzWfib85V3byPw","oSBYsuBaOcgurf9ruM0lu1xYa92I"
   ],
-  "content": "{\"template_id\":\"Tbbxvd5A58tM67lVfRhJ3-z7DpZcWZJk7aQckMxks6Q\",\"url\":\"https://mp.weixin.qq.com/s/a-WQKTKJrVt-L92fVeoC4Q\",\"miniprogram\":{\"appid\":\"wx816e37b1b1e3c183\",\"pagepath\":\"/pages/index/tenant/enter?oid=304\"},\"data\":{\"first\":{\"DATA\":\"银之鑫测试税局\"},\"keyword1\":{\"DATA\":\"申报纳税测试\"},\"keyword2\":{\"DATA\":\"2014年9月22日\"},\"keyword3\":{\"DATA\":\"1，3，5\"},\"keyword4\":{\"DATA\":\"A001\"},\"remark\":{\"DATA\":\"请您尽快到大厅等候叫号，过号作废。\"}}"
+  "content": "{\"template_id\":\"Tbbxvd5A58tM67lVfRhJ3-z7DpZcWZJk7aQckMxks6Q\",\"url\":\"https://mp.weixin.qq.com/s/a-WQKTKJrVt-L92fVeoC4Q\",\"miniprogram\":{\"appid\":\"wx1fe2259ad0fb697c\",\"pagepath\":\"/pages/index/tenant/enter?oid=304\"},\"data\":{\"first\":{\"DATA\":\"银之鑫测试税局\"},\"keyword1\":{\"DATA\":\"申报纳税测试\"},\"keyword2\":{\"DATA\":\"2014年9月22日\"},\"keyword3\":{\"DATA\":\"1，3，5\"},\"keyword4\":{\"DATA\":\"A001\"},\"remark\":{\"DATA\":\"请您尽快到大厅等候叫号，过号作废。\"}}}"
 }
 
 Date:2024-07-19 11:48:37.208 LogLevel:Information

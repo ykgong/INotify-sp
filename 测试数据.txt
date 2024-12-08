@@ -1,3 +1,5 @@
+
+
 {
   "msgType": -1,
   "subject": "测试队列标题",
@@ -20,9 +22,20 @@
   "msgType": 2,
   "subject": "消息测试邮件",
   "sendTo": [
-    "g.yk@qq.com"
+    "g.yk@qq.com",
+    "275049836@qq.com",
+    "ykgong@hotmail.com"
   ],
   "content": "这是一封基于分布式集群的消息队列邮件发送测试，收到不用回复"
+}
+
+{
+  "msgType": 3,
+  "subject": "短信测试",
+  "sendTo": [
+    "18580770035"
+  ],
+  "content": "短信测试队列内容"
 }
 
 微信模板消息-发送成功-但无内容

@@ -5,6 +5,10 @@ using Common.Notify.Tools.DingTalk.DTO;
 
 namespace Common.Notify.MessageProvider
 {
+
+    /// <summary>
+    /// 钉钉
+    /// </summary>
     public class DingTalkProvider : BaseProvider
     {
 

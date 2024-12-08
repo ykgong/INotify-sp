@@ -8,7 +8,7 @@ spec:
   version: v1
   metadata:
   - name: redisHost
-    value: dapr-redis:6379
+    value: dapr_redis:36378
   - name: redisPassword
     value: "q.123"
   - name: actorStateStore

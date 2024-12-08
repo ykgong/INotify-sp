@@ -13,7 +13,7 @@ namespace Message.WebApi
             builder.Services.AddControllers().AddNewtonsoftJson(options =>
             {
                 options.SerializerSettings.Set();
-            }).AddDapr();
+            }).AddMyDapr("WebApi");
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
@@ -34,6 +34,7 @@ namespace Message.WebApi
             }
             app.UseErrorHandling();
             app.UseAuthorization();
+
             app.MapControllers();
             //app.MapSubscribeHandler();//¿ªÆô¶©ÔÄ
             app.Run();
